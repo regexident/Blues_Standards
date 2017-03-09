@@ -1,0 +1,6 @@
+[submodule "Carthage/Checkouts/Result"]
+	path = Carthage/Checkouts/Result
+	url = https://github.com/regexident/Result.git
+[submodule "Carthage/Checkouts/Blues"]
+	path = Carthage/Checkouts/Blues
+	url = https://github.com/nwtnberlin/Blues.git

@@ -4,4 +4,10 @@
    <FileRef
       location = "container:Blues_Standards.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/Blues/Blues.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/Blues/../Result/Result.xcodeproj">
+   </FileRef>
 </Workspace>
