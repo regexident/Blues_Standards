@@ -15,6 +15,10 @@
 		BF6DA1DD1E71B16F00F35943 /* Blues_Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF6DA1E61E71B1A700F35943 /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1E41E71B1A700F35943 /* Blues.framework */; };
 		BF6DA1E71E71B1A700F35943 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1E51E71B1A700F35943 /* Result.framework */; };
+		BF6DA1F71E71B4CB00F35943 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
+		BF6DA1F81E71B4CB00F35943 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
+		BF6DA1F91E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */; };
+		BF6DA1FA1E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,8 @@
 		BF6DA1E21E71B16F00F35943 /* Blues_Standards_Debug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blues_Standards_Debug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6DA1E41E71B1A700F35943 /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../Library/Developer/Xcode/DerivedData/Blues_Standards-ehdasotinaeirpehwxysfeyrzuqm/Build/Products/Debug-iphoneos/Blues.framework"; sourceTree = "<group>"; };
 		BF6DA1E51E71B1A700F35943 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../Library/Developer/Xcode/DerivedData/Blues_Standards-ehdasotinaeirpehwxysfeyrzuqm/Build/Products/Debug-iphoneos/Result.framework"; sourceTree = "<group>"; };
+		BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
+		BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryValueCharacteristic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		BF6DA1B11E71AFCE00F35943 /* Blues_Standards */ = {
 			isa = PBXGroup;
 			children = (
+				BF6DA1F31E71B4CB00F35943 /* Services */,
 				BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */,
 				BF6DA1B31E71AFCE00F35943 /* Info.plist */,
 			);
@@ -126,6 +133,23 @@
 				BF6DA1E51E71B1A700F35943 /* Result.framework */,
 			);
 			name = "Frameworks (Workspace)";
+			sourceTree = "<group>";
+		};
+		BF6DA1F31E71B4CB00F35943 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DA1F41E71B4CB00F35943 /* Battery */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BF6DA1F41E71B4CB00F35943 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */,
+				BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */,
+			);
+			path = Battery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6DA1F91E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */,
+				BF6DA1F71E71B4CB00F35943 /* BatteryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +319,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6DA1FA1E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */,
+				BF6DA1F81E71B4CB00F35943 /* BatteryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +486,7 @@
 		BF6DA1C71E71AFCE00F35943 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = RHSV5Y8MLD;
 				INFOPLIST_FILE = Blues_StandardsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -470,6 +499,7 @@
 		BF6DA1C81E71AFCE00F35943 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = RHSV5Y8MLD;
 				INFOPLIST_FILE = Blues_StandardsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
