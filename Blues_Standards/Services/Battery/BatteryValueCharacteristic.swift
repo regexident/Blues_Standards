@@ -16,6 +16,18 @@ public struct BatteryValue {
     public let value: UInt8
 }
 
+extension BatteryValue: Equatable {
+    public static func == (lhs: BatteryValue, rhs: BatteryValue) -> Bool {
+        return lhs.value == rhs.value
+    }
+}
+
+extension BatteryValue: CustomStringConvertible {
+    public var description: String {
+        return "\(self.value)%"
+    }
+}
+
 public protocol BatteryValueCharacteristicDelegate: class {
     func didUpdate(
         value: Result<BatteryValue, TypesafeCharacteristicError>,
