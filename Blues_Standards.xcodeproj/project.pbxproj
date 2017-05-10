@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF180BEC1EC35C3A008F7982 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
+		BF180BED1EC35CE1008F7982 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */; };
+		BF180BEE1EC360F5008F7982 /* DeviceInformationModelNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */; };
+		BF180BEF1EC3629E008F7982 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */; };
+		BF180BF01EC3629E008F7982 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */; };
+		BF180BF11EC3629E008F7982 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */; };
+		BF180BF21EC3629E008F7982 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */; };
+		BF180BF31EC3629E008F7982 /* DeviceInformationSystemIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */; };
+		BF180BF51EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
 		BF6DA1B91E71AFCE00F35943 /* Blues_Standards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */; };
 		BF6DA1BE1E71AFCE00F35943 /* Blues_StandardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1BD1E71AFCE00F35943 /* Blues_StandardsTests.swift */; };
 		BF6DA1C01E71AFCE00F35943 /* Blues_Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF6DA1D51E71B16200F35943 /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1D31E71B16200F35943 /* Blues.framework */; };
-		BF6DA1D61E71B16200F35943 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1D41E71B16200F35943 /* Result.framework */; };
-		BF6DA1DD1E71B16F00F35943 /* Blues_Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF6DA1E61E71B1A700F35943 /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1E41E71B1A700F35943 /* Blues.framework */; };
-		BF6DA1E71E71B1A700F35943 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1E51E71B1A700F35943 /* Result.framework */; };
 		BF6DA1F71E71B4CB00F35943 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
-		BF6DA1F81E71B4CB00F35943 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
 		BF6DA1F91E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */; };
-		BF6DA1FA1E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */; };
+		BF84AD8C1EC33C3800FAD246 /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF84AD8A1EC33C3800FAD246 /* Blues.framework */; };
+		BF84AD8D1EC33C3800FAD246 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF84AD8B1EC33C3800FAD246 /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,19 +36,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationPnPIDCharacteristic.swift; sourceTree = "<group>"; };
 		BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blues_Standards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blues_Standards.h; sourceTree = "<group>"; };
 		BF6DA1B31E71AFCE00F35943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6DA1B81E71AFCE00F35943 /* Blues_StandardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Blues_StandardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6DA1BD1E71AFCE00F35943 /* Blues_StandardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blues_StandardsTests.swift; sourceTree = "<group>"; };
 		BF6DA1BF1E71AFCE00F35943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF6DA1D31E71B16200F35943 /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = Carthage/Build/iOS/Blues.framework; sourceTree = "<group>"; };
-		BF6DA1D41E71B16200F35943 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		BF6DA1E21E71B16F00F35943 /* Blues_Standards_Debug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blues_Standards_Debug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6DA1E41E71B1A700F35943 /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../Library/Developer/Xcode/DerivedData/Blues_Standards-ehdasotinaeirpehwxysfeyrzuqm/Build/Products/Debug-iphoneos/Blues.framework"; sourceTree = "<group>"; };
 		BF6DA1E51E71B1A700F35943 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../Library/Developer/Xcode/DerivedData/Blues_Standards-ehdasotinaeirpehwxysfeyrzuqm/Build/Products/Debug-iphoneos/Result.framework"; sourceTree = "<group>"; };
 		BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
 		BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryValueCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationManufacturerNameCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationService.swift; sourceTree = "<group>"; };
+		BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationModelNumberCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationSerialNumberCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationHardwareRevisionCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationFirmwareRevisionCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationSoftwareRevisionCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationSystemIDCharacteristic.swift; sourceTree = "<group>"; };
+		BF84AD8A1EC33C3800FAD246 /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../Library/Developer/Xcode/DerivedData/Blues_Standards-adqstguzqguuyjclgzrqylympnml/Build/Products/Debug-iphoneos/Blues.framework"; sourceTree = "<group>"; };
+		BF84AD8B1EC33C3800FAD246 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../Library/Developer/Xcode/DerivedData/Blues_Standards-adqstguzqguuyjclgzrqylympnml/Build/Products/Debug-iphoneos/Result.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF6DA1D51E71B16200F35943 /* Blues.framework in Frameworks */,
-				BF6DA1D61E71B16200F35943 /* Result.framework in Frameworks */,
+				BF84AD8C1EC33C3800FAD246 /* Blues.framework in Frameworks */,
+				BF84AD8D1EC33C3800FAD246 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,15 +74,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6DA1B91E71AFCE00F35943 /* Blues_Standards.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF6DA1D91E71B16F00F35943 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF6DA1E61E71B1A700F35943 /* Blues.framework in Frameworks */,
-				BF6DA1E71E71B1A700F35943 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +87,7 @@
 				BF6DA1BC1E71AFCE00F35943 /* Blues_StandardsTests */,
 				BF6DA1B01E71AFCE00F35943 /* Products */,
 				BF6DA1E81E71B1AE00F35943 /* Frameworks (Workspace) */,
-				BF6DA1D21E71B16200F35943 /* Frameworks (Carthage) */,
+				BF84AD891EC33C3700FAD246 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +96,6 @@
 			children = (
 				BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */,
 				BF6DA1B81E71AFCE00F35943 /* Blues_StandardsTests.xctest */,
-				BF6DA1E21E71B16F00F35943 /* Blues_Standards_Debug.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,15 +119,6 @@
 			path = Blues_StandardsTests;
 			sourceTree = "<group>";
 		};
-		BF6DA1D21E71B16200F35943 /* Frameworks (Carthage) */ = {
-			isa = PBXGroup;
-			children = (
-				BF6DA1D31E71B16200F35943 /* Blues.framework */,
-				BF6DA1D41E71B16200F35943 /* Result.framework */,
-			);
-			name = "Frameworks (Carthage)";
-			sourceTree = "<group>";
-		};
 		BF6DA1E81E71B1AE00F35943 /* Frameworks (Workspace) */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6DA1F41E71B4CB00F35943 /* Battery */,
+				BF84AD761EC325A300FAD246 /* Device Information */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -152,6 +146,31 @@
 			path = Battery;
 			sourceTree = "<group>";
 		};
+		BF84AD761EC325A300FAD246 /* Device Information */ = {
+			isa = PBXGroup;
+			children = (
+				BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */,
+				BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */,
+				BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */,
+				BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */,
+				BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */,
+				BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */,
+				BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */,
+				BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */,
+				BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */,
+			);
+			path = "Device Information";
+			sourceTree = "<group>";
+		};
+		BF84AD891EC33C3700FAD246 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF84AD8A1EC33C3800FAD246 /* Blues.framework */,
+				BF84AD8B1EC33C3800FAD246 /* Result.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -160,14 +179,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6DA1C01E71AFCE00F35943 /* Blues_Standards.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF6DA1DC1E71B16F00F35943 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF6DA1DD1E71B16F00F35943 /* Blues_Standards.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,24 +221,6 @@
 			productReference = BF6DA1B81E71AFCE00F35943 /* Blues_StandardsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BF6DA1D71E71B16F00F35943 /* Blues_Standards_Debug */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF6DA1DF1E71B16F00F35943 /* Build configuration list for PBXNativeTarget "Blues_Standards_Debug" */;
-			buildPhases = (
-				BF6DA1D81E71B16F00F35943 /* Sources */,
-				BF6DA1D91E71B16F00F35943 /* Frameworks */,
-				BF6DA1DC1E71B16F00F35943 /* Headers */,
-				BF6DA1DE1E71B16F00F35943 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Blues_Standards_Debug;
-			productName = Blues_Standards;
-			productReference = BF6DA1E21E71B16F00F35943 /* Blues_Standards_Debug.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -249,9 +242,6 @@
 						DevelopmentTeam = RHSV5Y8MLD;
 						ProvisioningStyle = Automatic;
 					};
-					BF6DA1D71E71B16F00F35943 = {
-						DevelopmentTeam = RHSV5Y8MLD;
-					};
 				};
 			};
 			buildConfigurationList = BF6DA1A91E71AFCE00F35943 /* Build configuration list for PBXProject "Blues_Standards" */;
@@ -268,7 +258,6 @@
 			targets = (
 				BF6DA1AE1E71AFCE00F35943 /* Blues_Standards */,
 				BF6DA1B71E71AFCE00F35943 /* Blues_StandardsTests */,
-				BF6DA1D71E71B16F00F35943 /* Blues_Standards_Debug */,
 			);
 		};
 /* End PBXProject section */
@@ -288,13 +277,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF6DA1DE1E71B16F00F35943 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -302,8 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF180BEC1EC35C3A008F7982 /* DeviceInformationService.swift in Sources */,
+				BF180BF11EC3629E008F7982 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */,
 				BF6DA1F91E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */,
+				BF180BEE1EC360F5008F7982 /* DeviceInformationModelNumberCharacteristic.swift in Sources */,
+				BF180BEF1EC3629E008F7982 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */,
+				BF180BF21EC3629E008F7982 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */,
+				BF180BF01EC3629E008F7982 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */,
+				BF180BED1EC35CE1008F7982 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */,
 				BF6DA1F71E71B4CB00F35943 /* BatteryService.swift in Sources */,
+				BF180BF31EC3629E008F7982 /* DeviceInformationSystemIDCharacteristic.swift in Sources */,
+				BF180BF51EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,15 +303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6DA1BE1E71AFCE00F35943 /* Blues_StandardsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF6DA1D81E71B16F00F35943 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF6DA1FA1E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */,
-				BF6DA1F81E71B4CB00F35943 /* BatteryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,52 +491,6 @@
 			};
 			name = Release;
 		};
-		BF6DA1E01E71B16F00F35943 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RHSV5Y8MLD;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = Blues_Standards/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nwtnberlin.Blues-Standards";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		BF6DA1E11E71B16F00F35943 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RHSV5Y8MLD;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = Blues_Standards/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nwtnberlin.Blues-Standards";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -581,15 +517,6 @@
 			buildConfigurations = (
 				BF6DA1C71E71AFCE00F35943 /* Debug */,
 				BF6DA1C81E71AFCE00F35943 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF6DA1DF1E71B16F00F35943 /* Build configuration list for PBXNativeTarget "Blues_Standards_Debug" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF6DA1E01E71B16F00F35943 /* Debug */,
-				BF6DA1E11E71B16F00F35943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
