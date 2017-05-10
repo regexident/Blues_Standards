@@ -11,7 +11,7 @@ import Foundation
 import Blues
 import Result
 
-open class BatteryService {
+public class BatteryService {
 
     public static let identifier = Identifier(string: "180F")
 
