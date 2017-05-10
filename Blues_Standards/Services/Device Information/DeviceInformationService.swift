@@ -11,7 +11,7 @@ import Foundation
 import Blues
 import Result
 
-open class DeviceInformationService: Service {
+open class DeviceInformationService: Service, TypeIdentifiable {
 
     public static let identifier = Identifier(string: "180A")
 
