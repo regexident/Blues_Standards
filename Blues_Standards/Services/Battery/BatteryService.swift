@@ -11,7 +11,7 @@ import Foundation
 import Blues
 import Result
 
-open class BatteryService: DelegatedService {
+open class BatteryService {
 
     public static let identifier = Identifier(string: "180F")
 
@@ -30,9 +30,26 @@ open class BatteryService: DelegatedService {
     }
 }
 
+extension BatteryService: ServiceDelegate {
+
+    public func didDiscover(
+        includedServices: Result<[Service], Error>,
+        for service: Service
+    ) {
+        self.delegate?.didDiscover(includedServices: includedServices, for: service)
+    }
+
+    public func didDiscover(
+        characteristics: Result<[Characteristic], Error>,
+        for service: Service
+    ) {
+        self.delegate?.didDiscover(characteristics: characteristics, for: service)
+    }
+}
+
 extension BatteryService: ServiceDataSource {
 
-    public func characteristic(shadow: ShadowCharacteristic, forService service: Service) -> Characteristic {
+    public func characteristic(shadow: ShadowCharacteristic, for service: Service) -> Characteristic {
         switch shadow.identifier {
         case BatteryValueCharacteristic.identifier:
             return BatteryValueCharacteristic(shadow: shadow)
