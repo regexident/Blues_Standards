@@ -1,6 +1,6 @@
 //
 //  DeviceInformationService.swift
-//  PeripheralsModule
+//  Blues_Standards
 //
 //  Created by Vincent Esche on 18/01/2017.
 //  Copyright © 2017 NWTN Berlin. All rights reserved.
