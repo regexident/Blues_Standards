@@ -18,18 +18,17 @@ public struct DeviceInformationSystemID {
 
 public protocol DeviceInformationSystemIDCharacteristicDelegate: class {
     func didUpdate(
-        modelNumber: Result<DeviceInformationSystemID, TypesafeCharacteristicError>,
+        systemID: Result<DeviceInformationSystemID, TypedCharacteristicError>,
         for characteristic: DeviceInformationSystemIDCharacteristic
     )
 }
 
 public struct DeviceInformationSystemIDTransformer: CharacteristicValueTransformer {
-
     public typealias Value = DeviceInformationSystemID
 
     private static let codingError = "Expected UTF-8 encoded string value."
 
-    public func transform(data: Data) -> Result<Value, TypesafeCharacteristicError> {
+    public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
         let expectedLength = 8
         guard data.count == expectedLength else {
             return .err(.decodingFailed(message: "Expected data of \(expectedLength) bytes, found \(data.count)."))
@@ -43,48 +42,39 @@ public struct DeviceInformationSystemIDTransformer: CharacteristicValueTransform
         }
     }
 
-    public func transform(value: Value) -> Result<Data, TypesafeCharacteristicError> {
+    public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
         return .err(.transformNotImplemented)
     }
 }
 
-public class DeviceInformationSystemIDCharacteristic: TypesafeCharacteristic, TypeIdentifiable {
-
+public class DeviceInformationSystemIDCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
     public typealias Transformer = DeviceInformationSystemIDTransformer
 
     public let transformer: Transformer = .init()
 
-    public static let identifier = Identifier(string: "2A23")
+    public static let typeIdentifier = Identifier(string: "2A23")
 
     public weak var delegate: DeviceInformationSystemIDCharacteristicDelegate? = nil
 
-    public let shadow: ShadowCharacteristic
-
-    public required init(shadow: ShadowCharacteristic) {
-        self.shadow = shadow
-    }
-
-    public var shouldSubscribeToNotificationsAutomatically: Bool {
-        return true
+    open override var shouldSubscribeToNotificationsAutomatically: Bool {
+        return false
     }
 }
 
 extension DeviceInformationSystemIDCharacteristic: ReadableCharacteristicDelegate {
-
     public func didUpdate(
         data: Result<Data, Error>,
         for characteristic: Characteristic
     ) {
-        self.delegate?.didUpdate(modelNumber: self.transform(data: data), for: self)
+        self.delegate?.didUpdate(systemID: self.transform(data: data), for: self)
     }
 }
 
 extension DeviceInformationSystemIDCharacteristic: CharacteristicDataSource {
-
     public func descriptor(
-        shadow: Blues.ShadowDescriptor,
+        with identifier: Identifier,
         for characteristic: Characteristic
     ) -> Descriptor {
-        return DefaultDescriptor(shadow: shadow)
+        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }

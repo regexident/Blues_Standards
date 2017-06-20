@@ -12,32 +12,24 @@ import Blues
 import Result
 
 open class DeviceInformationService: Service, TypeIdentifiable {
-
-    public static let identifier = Identifier(string: "180A")
-
-    public let shadow: ShadowService
+    public static let typeIdentifier = Identifier(string: "180A")
 
     weak public var delegate: ServiceDelegate?
 
-    public required init(shadow: ShadowService) {
-        self.shadow = shadow
-    }
-    
-    open var automaticallyDiscoveredCharacteristics: [Identifier]? {
+    open override var automaticallyDiscoveredCharacteristics: [Identifier]? {
         return [
-            DeviceInformationManufacturerNameCharacteristic.identifier,
-            DeviceInformationModelNumberCharacteristic.identifier,
-            DeviceInformationSerialNumberCharacteristic.identifier,
-            DeviceInformationHardwareRevisionCharacteristic.identifier,
-            DeviceInformationFirmwareRevisionCharacteristic.identifier,
-            DeviceInformationSoftwareRevisionCharacteristic.identifier,
-            DeviceInformationSystemIDCharacteristic.identifier,
+            DeviceInformationManufacturerNameCharacteristic.typeIdentifier,
+            DeviceInformationModelNumberCharacteristic.typeIdentifier,
+            DeviceInformationSerialNumberCharacteristic.typeIdentifier,
+            DeviceInformationHardwareRevisionCharacteristic.typeIdentifier,
+            DeviceInformationFirmwareRevisionCharacteristic.typeIdentifier,
+            DeviceInformationSoftwareRevisionCharacteristic.typeIdentifier,
+            DeviceInformationSystemIDCharacteristic.typeIdentifier,
         ]
     }
 }
 
 extension DeviceInformationService: ServiceDelegate {
-
     public func didDiscover(
         includedServices: Result<[Service], Error>,
         for service: Service
@@ -54,25 +46,24 @@ extension DeviceInformationService: ServiceDelegate {
 }
 
 extension DeviceInformationService: ServiceDataSource {
-
-    public func characteristic(shadow: ShadowCharacteristic, for service: Service) -> Characteristic {
-        switch shadow.identifier {
-        case DeviceInformationManufacturerNameCharacteristic.identifier:
-            return DeviceInformationManufacturerNameCharacteristic(shadow: shadow)
-        case DeviceInformationModelNumberCharacteristic.identifier:
-            return DeviceInformationModelNumberCharacteristic(shadow: shadow)
-        case DeviceInformationSerialNumberCharacteristic.identifier:
-            return DeviceInformationSerialNumberCharacteristic(shadow: shadow)
-        case DeviceInformationHardwareRevisionCharacteristic.identifier:
-            return DeviceInformationHardwareRevisionCharacteristic(shadow: shadow)
-        case DeviceInformationFirmwareRevisionCharacteristic.identifier:
-            return DeviceInformationFirmwareRevisionCharacteristic(shadow: shadow)
-        case DeviceInformationSoftwareRevisionCharacteristic.identifier:
-            return DeviceInformationSoftwareRevisionCharacteristic(shadow: shadow)
-        case DeviceInformationSystemIDCharacteristic.identifier:
-            return DeviceInformationSystemIDCharacteristic(shadow: shadow)
+    public func characteristic(with identifier: Identifier, for service: Service) -> Characteristic {
+        switch identifier {
+        case DeviceInformationManufacturerNameCharacteristic.typeIdentifier:
+            return DeviceInformationManufacturerNameCharacteristic(identifier: identifier, service: service)
+        case DeviceInformationModelNumberCharacteristic.typeIdentifier:
+            return DeviceInformationModelNumberCharacteristic(identifier: identifier, service: service)
+        case DeviceInformationSerialNumberCharacteristic.typeIdentifier:
+            return DeviceInformationSerialNumberCharacteristic(identifier: identifier, service: service)
+        case DeviceInformationHardwareRevisionCharacteristic.typeIdentifier:
+            return DeviceInformationHardwareRevisionCharacteristic(identifier: identifier, service: service)
+        case DeviceInformationFirmwareRevisionCharacteristic.typeIdentifier:
+            return DeviceInformationFirmwareRevisionCharacteristic(identifier: identifier, service: service)
+        case DeviceInformationSoftwareRevisionCharacteristic.typeIdentifier:
+            return DeviceInformationSoftwareRevisionCharacteristic(identifier: identifier, service: service)
+        case DeviceInformationSystemIDCharacteristic.typeIdentifier:
+            return DeviceInformationSystemIDCharacteristic(identifier: identifier, service: service)
         default:
-            return DefaultCharacteristic(shadow: shadow)
+            return DefaultCharacteristic(identifier: identifier, service: service)
         }
     }
 }

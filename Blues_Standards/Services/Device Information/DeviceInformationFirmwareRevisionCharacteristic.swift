@@ -17,66 +17,56 @@ public struct DeviceInformationFirmwareRevision {
 
 public protocol DeviceInformationFirmwareRevisionCharacteristicDelegate: class {
     func didUpdate(
-        modelNumber: Result<DeviceInformationFirmwareRevision, TypesafeCharacteristicError>,
+        firmwareRevision: Result<DeviceInformationFirmwareRevision, TypedCharacteristicError>,
         for characteristic: DeviceInformationFirmwareRevisionCharacteristic
     )
 }
 
 public struct DeviceInformationFirmwareRevisionTransformer: CharacteristicValueTransformer {
-
     public typealias Value = DeviceInformationFirmwareRevision
 
     private static let codingError = "Expected UTF-8 encoded string value."
 
-    public func transform(data: Data) -> Result<Value, TypesafeCharacteristicError> {
+    public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
         guard let string = String(data: data, encoding: .utf8) else {
             return .err(.decodingFailed(message: DeviceInformationFirmwareRevisionTransformer.codingError))
         }
         return .ok(DeviceInformationFirmwareRevision(string: string))
     }
 
-    public func transform(value: Value) -> Result<Data, TypesafeCharacteristicError> {
+    public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
         return .err(.transformNotImplemented)
     }
 }
 
-public class DeviceInformationFirmwareRevisionCharacteristic: TypesafeCharacteristic, TypeIdentifiable {
-
+public class DeviceInformationFirmwareRevisionCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
     public typealias Transformer = DeviceInformationFirmwareRevisionTransformer
 
     public let transformer: Transformer = .init()
 
-    public static let identifier = Identifier(string: "2A26")
+    public static let typeIdentifier = Identifier(string: "2A26")
 
     public weak var delegate: DeviceInformationFirmwareRevisionCharacteristicDelegate? = nil
 
-    public let shadow: ShadowCharacteristic
-
-    public required init(shadow: ShadowCharacteristic) {
-        self.shadow = shadow
-    }
-
-    public var shouldSubscribeToNotificationsAutomatically: Bool {
-        return true
+    open override var shouldSubscribeToNotificationsAutomatically: Bool {
+        return false
     }
 }
 
 extension DeviceInformationFirmwareRevisionCharacteristic: ReadableCharacteristicDelegate {
-
     public func didUpdate(
         data: Result<Data, Error>,
         for characteristic: Characteristic
     ) {
-        self.delegate?.didUpdate(modelNumber: self.transform(data: data), for: self)
+        self.delegate?.didUpdate(firmwareRevision: self.transform(data: data), for: self)
     }
 }
 
 extension DeviceInformationFirmwareRevisionCharacteristic: CharacteristicDataSource {
-
     public func descriptor(
-        shadow: Blues.ShadowDescriptor,
+        with identifier: Identifier,
         for characteristic: Characteristic
     ) -> Descriptor {
-        return DefaultDescriptor(shadow: shadow)
+        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }

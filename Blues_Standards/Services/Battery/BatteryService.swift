@@ -12,26 +12,18 @@ import Blues
 import Result
 
 public class BatteryService: Service, TypeIdentifiable {
-
-    public static let identifier = Identifier(string: "180F")
-
-    public let shadow: ShadowService
+    public static let typeIdentifier = Identifier(string: "180F")
 
     weak public var delegate: ServiceDelegate?
 
-    public required init(shadow: ShadowService) {
-        self.shadow = shadow
-    }
-    
-    open var automaticallyDiscoveredCharacteristics: [Identifier]? {
+    open override var automaticallyDiscoveredCharacteristics: [Identifier]? {
         return [
-            BatteryValueCharacteristic.identifier
+            BatteryValueCharacteristic.typeIdentifier
         ]
     }
 }
 
 extension BatteryService: ServiceDelegate {
-
     public func didDiscover(
         includedServices: Result<[Service], Error>,
         for service: Service
@@ -48,13 +40,12 @@ extension BatteryService: ServiceDelegate {
 }
 
 extension BatteryService: ServiceDataSource {
-
-    public func characteristic(shadow: ShadowCharacteristic, for service: Service) -> Characteristic {
-        switch shadow.identifier {
-        case BatteryValueCharacteristic.identifier:
-            return BatteryValueCharacteristic(shadow: shadow)
+    public func characteristic(with identifier: Identifier, for service: Service) -> Characteristic {
+        switch identifier {
+        case BatteryValueCharacteristic.typeIdentifier:
+            return BatteryValueCharacteristic(identifier: identifier, service: service)
         default:
-            return DefaultCharacteristic(shadow: shadow)
+            return DefaultCharacteristic(identifier: identifier, service: service)
         }
     }
 }

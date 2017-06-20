@@ -30,7 +30,7 @@ extension BatteryValue: CustomStringConvertible {
 
 public protocol BatteryValueCharacteristicDelegate: class {
     func didUpdate(
-        value: Result<BatteryValue, TypesafeCharacteristicError>,
+        value: Result<BatteryValue, TypedCharacteristicError>,
         for characteristic: BatteryValueCharacteristic
     )
 
@@ -46,12 +46,11 @@ public protocol BatteryValueCharacteristicDelegate: class {
 }
 
 public struct BatteryValueTransformer: CharacteristicValueTransformer {
-
     public typealias Value = BatteryValue
 
     private static let codingError = "Expected value within 0 and 100 (inclusive)."
 
-    public func transform(data: Data) -> Result<Value, TypesafeCharacteristicError> {
+    public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
         let expectedLength = 1
         guard data.count == expectedLength else {
             return .err(.decodingFailed(message: "Expected data of \(expectedLength) bytes, found \(data.count)."))
@@ -66,34 +65,26 @@ public struct BatteryValueTransformer: CharacteristicValueTransformer {
         }
     }
 
-    public func transform(value: Value) -> Result<Data, TypesafeCharacteristicError> {
+    public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
         return .err(.transformNotImplemented)
     }
 }
 
-public class BatteryValueCharacteristic: TypesafeCharacteristic, TypeIdentifiable {
-
+public class BatteryValueCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
     public typealias Transformer = BatteryValueTransformer
 
     public let transformer: Transformer = .init()
 
-    public static let identifier = Identifier(string: "2A19")
+    public static let typeIdentifier = Identifier(string: "2A19")
 
     public weak var delegate: BatteryValueCharacteristicDelegate? = nil
 
-    public let shadow: ShadowCharacteristic
-
-    public required init(shadow: ShadowCharacteristic) {
-        self.shadow = shadow
-    }
-
-    public var shouldSubscribeToNotificationsAutomatically: Bool {
-        return true
+    open override var shouldSubscribeToNotificationsAutomatically: Bool {
+        return false
     }
 }
 
 extension BatteryValueCharacteristic: ReadableCharacteristicDelegate {
-
     public func didUpdate(
         data: Result<Data, Error>,
         for characteristic: Characteristic
@@ -103,7 +94,6 @@ extension BatteryValueCharacteristic: ReadableCharacteristicDelegate {
 }
 
 extension BatteryValueCharacteristic: NotifyableCharacteristicDelegate {
-
     public func didUpdate(
         notificationState isNotifying: Result<Bool, Error>,
         for characteristic: Characteristic
@@ -113,7 +103,6 @@ extension BatteryValueCharacteristic: NotifyableCharacteristicDelegate {
 }
 
 extension BatteryValueCharacteristic: DescribableCharacteristicDelegate {
-
     public func didDiscover(
         descriptors: Result<[Descriptor], Error>,
         for characteristic: Characteristic
@@ -123,11 +112,7 @@ extension BatteryValueCharacteristic: DescribableCharacteristicDelegate {
 }
 
 extension BatteryValueCharacteristic: CharacteristicDataSource {
-
-    public func descriptor(
-        shadow: Blues.ShadowDescriptor,
-        for characteristic: Characteristic
-    ) -> Descriptor {
-        return DefaultDescriptor(shadow: shadow)
+    public func descriptor(with identifier: Identifier, for characteristic: Characteristic) -> Descriptor {
+        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }
