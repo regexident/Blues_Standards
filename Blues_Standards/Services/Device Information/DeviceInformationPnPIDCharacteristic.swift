@@ -18,13 +18,6 @@ public struct DeviceInformationPnPID {
     public let productVersion: UInt16
 }
 
-public protocol DeviceInformationPnPIDCharacteristicDelegate: class {
-    func didUpdate(
-        modelNumber: Result<DeviceInformationPnPID, TypedCharacteristicError>,
-        for characteristic: DeviceInformationPnPIDCharacteristic
-    )
-}
-
 public struct DeviceInformationPnPIDTransformer: CharacteristicValueTransformer {
     public typealias Value = DeviceInformationPnPID
 
@@ -50,34 +43,17 @@ public struct DeviceInformationPnPIDTransformer: CharacteristicValueTransformer 
     }
 }
 
-public class DeviceInformationPnPIDCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
+public class DeviceInformationPnPIDCharacteristic:
+    Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
     public typealias Transformer = DeviceInformationPnPIDTransformer
 
     public let transformer: Transformer = .init()
 
     public static let typeIdentifier = Identifier(string: "2A23")
 
-    public weak var delegate: DeviceInformationPnPIDCharacteristicDelegate? = nil
+    public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {
         return false
-    }
-}
-
-extension DeviceInformationPnPIDCharacteristic: ReadableCharacteristicDelegate {
-    public func didUpdate(
-        data: Result<Data, Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didUpdate(modelNumber: self.transform(data: data), for: self)
-    }
-}
-
-extension DeviceInformationPnPIDCharacteristic: CharacteristicDataSource {
-    public func descriptor(
-        with identifier: Blues.Identifier,
-        for characteristic: Characteristic
-    ) -> Descriptor {
-        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }

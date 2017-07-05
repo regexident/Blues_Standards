@@ -15,13 +15,6 @@ public struct DeviceInformationManufacturerName {
     public let string: String
 }
 
-public protocol DeviceInformationManufacturerNameCharacteristicDelegate: class {
-    func didUpdate(
-        name: Result<DeviceInformationManufacturerName, TypedCharacteristicError>,
-        for characteristic: DeviceInformationManufacturerNameCharacteristic
-    )
-}
-
 public struct DeviceInformationManufacturerNameTransformer: CharacteristicValueTransformer {
     public typealias Value = DeviceInformationManufacturerName
 
@@ -39,34 +32,17 @@ public struct DeviceInformationManufacturerNameTransformer: CharacteristicValueT
     }
 }
 
-public class DeviceInformationManufacturerNameCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
+public class DeviceInformationManufacturerNameCharacteristic:
+    Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
     public typealias Transformer = DeviceInformationManufacturerNameTransformer
 
     public let transformer: Transformer = .init()
 
     public static let typeIdentifier = Identifier(string: "2A29")
 
-    public weak var delegate: DeviceInformationManufacturerNameCharacteristicDelegate? = nil
+    public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {
         return false
-    }
-}
-
-extension DeviceInformationManufacturerNameCharacteristic: ReadableCharacteristicDelegate {
-    public func didUpdate(
-        data: Result<Data, Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didUpdate(name: self.transform(data: data), for: self)
-    }
-}
-
-extension DeviceInformationManufacturerNameCharacteristic: CharacteristicDataSource {
-    public func descriptor(
-        with identifier: Identifier,
-        for characteristic: Characteristic
-    ) -> Descriptor {
-        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }

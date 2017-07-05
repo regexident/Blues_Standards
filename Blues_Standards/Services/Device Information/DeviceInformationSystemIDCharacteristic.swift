@@ -16,13 +16,6 @@ public struct DeviceInformationSystemID {
     public let organizationallyUniqueIdentifier: UInt32
 }
 
-public protocol DeviceInformationSystemIDCharacteristicDelegate: class {
-    func didUpdate(
-        systemID: Result<DeviceInformationSystemID, TypedCharacteristicError>,
-        for characteristic: DeviceInformationSystemIDCharacteristic
-    )
-}
-
 public struct DeviceInformationSystemIDTransformer: CharacteristicValueTransformer {
     public typealias Value = DeviceInformationSystemID
 
@@ -47,34 +40,17 @@ public struct DeviceInformationSystemIDTransformer: CharacteristicValueTransform
     }
 }
 
-public class DeviceInformationSystemIDCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
+public class DeviceInformationSystemIDCharacteristic:
+    Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
     public typealias Transformer = DeviceInformationSystemIDTransformer
 
     public let transformer: Transformer = .init()
 
     public static let typeIdentifier = Identifier(string: "2A23")
 
-    public weak var delegate: DeviceInformationSystemIDCharacteristicDelegate? = nil
+    public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {
         return false
-    }
-}
-
-extension DeviceInformationSystemIDCharacteristic: ReadableCharacteristicDelegate {
-    public func didUpdate(
-        data: Result<Data, Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didUpdate(systemID: self.transform(data: data), for: self)
-    }
-}
-
-extension DeviceInformationSystemIDCharacteristic: CharacteristicDataSource {
-    public func descriptor(
-        with identifier: Identifier,
-        for characteristic: Characteristic
-    ) -> Descriptor {
-        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }

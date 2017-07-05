@@ -15,13 +15,6 @@ public struct DeviceInformationSerialNumber {
     public let string: String
 }
 
-public protocol DeviceInformationSerialNumberCharacteristicDelegate: class {
-    func didUpdate(
-        serialNumber: Result<DeviceInformationSerialNumber, TypedCharacteristicError>,
-        for characteristic: DeviceInformationSerialNumberCharacteristic
-    )
-}
-
 public struct DeviceInformationSerialNumberTransformer: CharacteristicValueTransformer {
     public typealias Value = DeviceInformationSerialNumber
 
@@ -39,34 +32,17 @@ public struct DeviceInformationSerialNumberTransformer: CharacteristicValueTrans
     }
 }
 
-public class DeviceInformationSerialNumberCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
+public class DeviceInformationSerialNumberCharacteristic:
+    Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
     public typealias Transformer = DeviceInformationSerialNumberTransformer
 
     public let transformer: Transformer = .init()
 
     public static let typeIdentifier = Identifier(string: "2A25")
 
-    public weak var delegate: DeviceInformationSerialNumberCharacteristicDelegate? = nil
+    public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {
         return false
-    }
-}
-
-extension DeviceInformationSerialNumberCharacteristic: ReadableCharacteristicDelegate {
-    public func didUpdate(
-        data: Result<Data, Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didUpdate(serialNumber: self.transform(data: data), for: self)
-    }
-}
-
-extension DeviceInformationSerialNumberCharacteristic: CharacteristicDataSource {
-    public func descriptor(
-        with identifier: Identifier,
-        for characteristic: Characteristic
-    ) -> Descriptor {
-        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }

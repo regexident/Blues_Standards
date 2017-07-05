@@ -11,7 +11,7 @@ import Foundation
 import Blues
 import Result
 
-open class DeviceInformationService: Service, TypeIdentifiable {
+open class DeviceInformationService: Service, DelegatedServiceProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "180A")
 
     weak public var delegate: ServiceDelegate?
@@ -26,22 +26,6 @@ open class DeviceInformationService: Service, TypeIdentifiable {
             DeviceInformationSoftwareRevisionCharacteristic.typeIdentifier,
             DeviceInformationSystemIDCharacteristic.typeIdentifier,
         ]
-    }
-}
-
-extension DeviceInformationService: ServiceDelegate {
-    public func didDiscover(
-        includedServices: Result<[Service], Error>,
-        for service: Service
-    ) {
-        self.delegate?.didDiscover(includedServices: includedServices, for: service)
-    }
-
-    public func didDiscover(
-        characteristics: Result<[Characteristic], Error>,
-        for service: Service
-    ) {
-        self.delegate?.didDiscover(characteristics: characteristics, for: service)
     }
 }
 

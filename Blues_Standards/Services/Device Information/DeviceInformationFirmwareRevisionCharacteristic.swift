@@ -15,13 +15,6 @@ public struct DeviceInformationFirmwareRevision {
     public let string: String
 }
 
-public protocol DeviceInformationFirmwareRevisionCharacteristicDelegate: class {
-    func didUpdate(
-        firmwareRevision: Result<DeviceInformationFirmwareRevision, TypedCharacteristicError>,
-        for characteristic: DeviceInformationFirmwareRevisionCharacteristic
-    )
-}
-
 public struct DeviceInformationFirmwareRevisionTransformer: CharacteristicValueTransformer {
     public typealias Value = DeviceInformationFirmwareRevision
 
@@ -39,34 +32,17 @@ public struct DeviceInformationFirmwareRevisionTransformer: CharacteristicValueT
     }
 }
 
-public class DeviceInformationFirmwareRevisionCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
+public class DeviceInformationFirmwareRevisionCharacteristic:
+    Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
     public typealias Transformer = DeviceInformationFirmwareRevisionTransformer
 
     public let transformer: Transformer = .init()
 
     public static let typeIdentifier = Identifier(string: "2A26")
 
-    public weak var delegate: DeviceInformationFirmwareRevisionCharacteristicDelegate? = nil
+    public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {
         return false
-    }
-}
-
-extension DeviceInformationFirmwareRevisionCharacteristic: ReadableCharacteristicDelegate {
-    public func didUpdate(
-        data: Result<Data, Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didUpdate(firmwareRevision: self.transform(data: data), for: self)
-    }
-}
-
-extension DeviceInformationFirmwareRevisionCharacteristic: CharacteristicDataSource {
-    public func descriptor(
-        with identifier: Identifier,
-        for characteristic: Characteristic
-    ) -> Descriptor {
-        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }

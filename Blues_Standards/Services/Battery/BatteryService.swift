@@ -11,7 +11,7 @@ import Foundation
 import Blues
 import Result
 
-public class BatteryService: Service, TypeIdentifiable {
+public class BatteryService: Service, DelegatedServiceProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "180F")
 
     weak public var delegate: ServiceDelegate?
@@ -20,22 +20,6 @@ public class BatteryService: Service, TypeIdentifiable {
         return [
             BatteryValueCharacteristic.typeIdentifier
         ]
-    }
-}
-
-extension BatteryService: ServiceDelegate {
-    public func didDiscover(
-        includedServices: Result<[Service], Error>,
-        for service: Service
-    ) {
-        self.delegate?.didDiscover(includedServices: includedServices, for: service)
-    }
-
-    public func didDiscover(
-        characteristics: Result<[Characteristic], Error>,
-        for service: Service
-    ) {
-        self.delegate?.didDiscover(characteristics: characteristics, for: service)
     }
 }
 

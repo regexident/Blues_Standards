@@ -28,23 +28,6 @@ extension BatteryValue: CustomStringConvertible {
     }
 }
 
-public protocol BatteryValueCharacteristicDelegate: class {
-    func didUpdate(
-        value: Result<BatteryValue, TypedCharacteristicError>,
-        for characteristic: BatteryValueCharacteristic
-    )
-
-    func didUpdate(
-        notificationState isNotifying: Result<Bool, Error>,
-        for characteristic: BatteryValueCharacteristic
-    )
-
-    func didDiscover(
-        descriptors: Result<[Descriptor], Error>,
-        for characteristic: BatteryValueCharacteristic
-    )
-}
-
 public struct BatteryValueTransformer: CharacteristicValueTransformer {
     public typealias Value = BatteryValue
 
@@ -70,49 +53,17 @@ public struct BatteryValueTransformer: CharacteristicValueTransformer {
     }
 }
 
-public class BatteryValueCharacteristic: Characteristic, TypedCharacteristic, TypeIdentifiable {
+public class BatteryValueCharacteristic:
+    Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
     public typealias Transformer = BatteryValueTransformer
 
     public let transformer: Transformer = .init()
 
     public static let typeIdentifier = Identifier(string: "2A19")
 
-    public weak var delegate: BatteryValueCharacteristicDelegate? = nil
+    public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {
         return false
-    }
-}
-
-extension BatteryValueCharacteristic: ReadableCharacteristicDelegate {
-    public func didUpdate(
-        data: Result<Data, Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didUpdate(value: self.transform(data: data), for: self)
-    }
-}
-
-extension BatteryValueCharacteristic: NotifyableCharacteristicDelegate {
-    public func didUpdate(
-        notificationState isNotifying: Result<Bool, Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didUpdate(notificationState: isNotifying, for: self)
-    }
-}
-
-extension BatteryValueCharacteristic: DescribableCharacteristicDelegate {
-    public func didDiscover(
-        descriptors: Result<[Descriptor], Error>,
-        for characteristic: Characteristic
-    ) {
-        self.delegate?.didDiscover(descriptors: descriptors, for: self)
-    }
-}
-
-extension BatteryValueCharacteristic: CharacteristicDataSource {
-    public func descriptor(with identifier: Identifier, for characteristic: Characteristic) -> Descriptor {
-        return DefaultDescriptor(identifier: identifier, characteristic: characteristic)
     }
 }
