@@ -16,14 +16,14 @@
 		BF180BF21EC3629E008F7982 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */; };
 		BF180BF31EC3629E008F7982 /* DeviceInformationSystemIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */; };
 		BF180BF51EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
-		BF180BF91EC372BB008F7982 /* BatteryValueTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF81EC372BB008F7982 /* BatteryValueTransformerTests.swift */; };
+		BF180BF91EC372BB008F7982 /* BatteryLevelTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */; };
 		BF31B58C1EFA798B00226C5A /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31B58A1EFA798B00226C5A /* Blues.framework */; };
 		BF31B58D1EFA798B00226C5A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31B58B1EFA798B00226C5A /* Result.framework */; };
 		BF6DA1B91E71AFCE00F35943 /* Blues_Standards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */; };
 		BF6DA1BE1E71AFCE00F35943 /* Blues_StandardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1BD1E71AFCE00F35943 /* Blues_StandardsTests.swift */; };
 		BF6DA1C01E71AFCE00F35943 /* Blues_Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF6DA1F71E71B4CB00F35943 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
-		BF6DA1F91E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */; };
+		BF6DA1F91E71B4CB00F35943 /* BatteryLevelCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationPnPIDCharacteristic.swift; sourceTree = "<group>"; };
-		BF180BF81EC372BB008F7982 /* BatteryValueTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryValueTransformerTests.swift; sourceTree = "<group>"; };
+		BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryLevelTransformerTests.swift; sourceTree = "<group>"; };
 		BF31B58A1EFA798B00226C5A /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Blues.framework"; sourceTree = "<group>"; };
 		BF31B58B1EFA798B00226C5A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Result.framework"; sourceTree = "<group>"; };
 		BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blues_Standards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,7 +48,7 @@
 		BF6DA1BD1E71AFCE00F35943 /* Blues_StandardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blues_StandardsTests.swift; sourceTree = "<group>"; };
 		BF6DA1BF1E71AFCE00F35943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
-		BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryValueCharacteristic.swift; sourceTree = "<group>"; };
+		BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryLevelCharacteristic.swift; sourceTree = "<group>"; };
 		BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationManufacturerNameCharacteristic.swift; sourceTree = "<group>"; };
 		BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationService.swift; sourceTree = "<group>"; };
 		BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationModelNumberCharacteristic.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6DA1BD1E71AFCE00F35943 /* Blues_StandardsTests.swift */,
-				BF180BF81EC372BB008F7982 /* BatteryValueTransformerTests.swift */,
+				BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */,
 				BF6DA1BF1E71AFCE00F35943 /* Info.plist */,
 			);
 			path = Blues_StandardsTests;
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */,
-				BF6DA1F61E71B4CB00F35943 /* BatteryValueCharacteristic.swift */,
+				BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */,
 			);
 			path = Battery;
 			sourceTree = "<group>";
@@ -277,7 +277,7 @@
 			files = (
 				BF180BEC1EC35C3A008F7982 /* DeviceInformationService.swift in Sources */,
 				BF180BF11EC3629E008F7982 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */,
-				BF6DA1F91E71B4CB00F35943 /* BatteryValueCharacteristic.swift in Sources */,
+				BF6DA1F91E71B4CB00F35943 /* BatteryLevelCharacteristic.swift in Sources */,
 				BF180BEE1EC360F5008F7982 /* DeviceInformationModelNumberCharacteristic.swift in Sources */,
 				BF180BEF1EC3629E008F7982 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */,
 				BF180BF21EC3629E008F7982 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */,
@@ -294,7 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6DA1BE1E71AFCE00F35943 /* Blues_StandardsTests.swift in Sources */,
-				BF180BF91EC372BB008F7982 /* BatteryValueTransformerTests.swift in Sources */,
+				BF180BF91EC372BB008F7982 /* BatteryLevelTransformerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

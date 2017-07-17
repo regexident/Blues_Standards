@@ -1,5 +1,5 @@
 //
-//  BatteryValueCharacteristic.swift
+//  BatteryLevelCharacteristic.swift
 //  Blues_Standards
 //
 //  Created by Vincent Esche on 18/01/2017.
@@ -11,25 +11,25 @@ import Foundation
 import Blues
 import Result
 
-public struct BatteryValue {
+public struct BatteryLevel {
     /// Normalized battery level (0 == 0%, 100 == 100%)
     public let value: UInt8
 }
 
-extension BatteryValue: Equatable {
-    public static func == (lhs: BatteryValue, rhs: BatteryValue) -> Bool {
+extension BatteryLevel: Equatable {
+    public static func == (lhs: BatteryLevel, rhs: BatteryLevel) -> Bool {
         return lhs.value == rhs.value
     }
 }
 
-extension BatteryValue: CustomStringConvertible {
+extension BatteryLevel: CustomStringConvertible {
     public var description: String {
         return "\(self.value)%"
     }
 }
 
-public struct BatteryValueTransformer: CharacteristicValueTransformer {
-    public typealias Value = BatteryValue
+public struct BatteryLevelTransformer: CharacteristicValueTransformer {
+    public typealias Value = BatteryLevel
 
     private static let codingError = "Expected value within 0 and 100 (inclusive)."
 
@@ -41,9 +41,9 @@ public struct BatteryValueTransformer: CharacteristicValueTransformer {
         return data.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
             let byte = buffer[0]
             if byte <= 100 {
-                return .ok(BatteryValue(value: byte))
+                return .ok(BatteryLevel(value: byte))
             } else {
-                return .err(.decodingFailed(message: BatteryValueTransformer.codingError))
+                return .err(.decodingFailed(message: BatteryLevelTransformer.codingError))
             }
         }
     }
@@ -53,9 +53,9 @@ public struct BatteryValueTransformer: CharacteristicValueTransformer {
     }
 }
 
-public class BatteryValueCharacteristic:
+public class BatteryLevelCharacteristic:
     Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-    public typealias Transformer = BatteryValueTransformer
+    public typealias Transformer = BatteryLevelTransformer
 
     public let transformer: Transformer = .init()
 

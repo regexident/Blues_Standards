@@ -1,5 +1,5 @@
 //
-//  BatteryValueTransformerTests.swift
+//  BatteryLevelTransformerTests.swift
 //  Blues_StandardsTests
 //
 //  Created by Vincent Esche on 20/03/2017.
@@ -13,9 +13,9 @@ import Blues
 
 @testable import Blues_Standards
 
-class BatteryValueTransformerTests: XCTestCase {
+class BatteryLevelTransformerTests: XCTestCase {
 
-    let transformer = BatteryValueTransformer()
+    let transformer = BatteryLevelTransformer()
 
     func testTooShort() {
         let data = Data(bytes: [])
@@ -37,7 +37,7 @@ class BatteryValueTransformerTests: XCTestCase {
         let data = Data(bytes: [0b00000000])
         switch self.transformer.transform(data: data) {
         case .ok(let value):
-            XCTAssertEqual(value, BatteryValue(value: 0))
+            XCTAssertEqual(value, BatteryLevel(value: 0))
         case .err(let error):
             XCTFail("Error: \(error)")
         }
@@ -47,7 +47,7 @@ class BatteryValueTransformerTests: XCTestCase {
         let data = Data(bytes: [0b00110010])
         switch self.transformer.transform(data: data) {
         case .ok(let value):
-            XCTAssertEqual(value, BatteryValue(value: 50))
+            XCTAssertEqual(value, BatteryLevel(value: 50))
         case .err(let error):
             XCTFail("Error: \(error)")
         }
@@ -57,7 +57,7 @@ class BatteryValueTransformerTests: XCTestCase {
         let data = Data(bytes: [0b01100100])
         switch self.transformer.transform(data: data) {
         case .ok(let value):
-            XCTAssertEqual(value, BatteryValue(value: 100))
+            XCTAssertEqual(value, BatteryLevel(value: 100))
         case .err(let error):
             XCTFail("Error: \(error)")
         }

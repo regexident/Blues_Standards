@@ -18,7 +18,7 @@ public class BatteryService: Service, DelegatedServiceProtocol, TypeIdentifiable
 
     open override var automaticallyDiscoveredCharacteristics: [Identifier]? {
         return [
-            BatteryValueCharacteristic.typeIdentifier
+            BatteryLevelCharacteristic.typeIdentifier
         ]
     }
 }
@@ -26,8 +26,8 @@ public class BatteryService: Service, DelegatedServiceProtocol, TypeIdentifiable
 extension BatteryService: ServiceDataSource {
     public func characteristic(with identifier: Identifier, for service: Service) -> Characteristic {
         switch identifier {
-        case BatteryValueCharacteristic.typeIdentifier:
-            return BatteryValueCharacteristic(identifier: identifier, service: service)
+        case BatteryLevelCharacteristic.typeIdentifier:
+            return BatteryLevelCharacteristic(identifier: identifier, service: service)
         default:
             return DefaultCharacteristic(identifier: identifier, service: service)
         }
