@@ -40,6 +40,14 @@ public class DeviceInformationModelNumberCharacteristic:
 
     public static let typeIdentifier = Identifier(string: "2A24")
 
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.device_information.characteristic.model_number.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'Model Number' characteristic"
+        )
+    }
+
     public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {

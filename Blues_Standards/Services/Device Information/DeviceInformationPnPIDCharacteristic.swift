@@ -51,6 +51,14 @@ public class DeviceInformationPnPIDCharacteristic:
 
     public static let typeIdentifier = Identifier(string: "2A23")
 
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.device_information.characteristic.pnp_id.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'PnP ID' characteristic"
+        )
+    }
+
     public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {

@@ -14,6 +14,14 @@ import Result
 open class DeviceInformationService: Service, DelegatedServiceProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "180A")
 
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.device_information.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'Device Information' service"
+        )
+    }
+
     weak public var delegate: ServiceDelegate?
 
     open override var automaticallyDiscoveredCharacteristics: [Identifier]? {

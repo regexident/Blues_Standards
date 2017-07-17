@@ -61,6 +61,14 @@ public class BatteryLevelCharacteristic:
 
     public static let typeIdentifier = Identifier(string: "2A19")
 
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.battery.characteristic.battery_level.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'Battery Level' characteristic"
+        )
+    }
+
     public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {

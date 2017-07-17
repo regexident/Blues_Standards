@@ -48,6 +48,14 @@ public class DeviceInformationSystemIDCharacteristic:
 
     public static let typeIdentifier = Identifier(string: "2A23")
 
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.device_information.characteristic.system_id.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'System ID' characteristic"
+        )
+    }
+
     public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {

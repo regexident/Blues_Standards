@@ -40,6 +40,14 @@ public class DeviceInformationHardwareRevisionCharacteristic:
 
     public static let typeIdentifier = Identifier(string: "2A27")
 
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.device_information.characteristic.hardware_revision.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'Hardware Revision' characteristic"
+        )
+    }
+
     public weak var delegate: CharacteristicDelegate? = nil
 
     open override var shouldSubscribeToNotificationsAutomatically: Bool {

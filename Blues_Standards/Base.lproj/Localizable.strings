@@ -1,0 +1,39 @@
+/* Localizable.strings
+ Blues_Standards
+
+ Created by Vincent Esche on 7/17/17.
+ Copyright © 2017 NWTN Berlin. All rights reserved. */
+
+/* Name of 'Battery Level' characteristic */
+"service.battery.characteristic.battery_level.name" = "Battery Level";
+
+/* Name of 'Battery' service */
+"service.battery.name" = "Battery";
+
+/* Name of 'Firmware Revision' characteristic */
+"service.device_information.characteristic.firmware_revision.name" = "Firmware Revision";
+
+/* Name of 'Hardware Revision' characteristic */
+"service.device_information.characteristic.hardware_revision.name" = "Hardware Revision";
+
+/* Name of 'Manufacturer Name' characteristic */
+"service.device_information.characteristic.manufacturer_name.name" = "Manufacturer Name";
+
+/* Name of 'Model Number' characteristic */
+"service.device_information.characteristic.model_number.name" = "Model Number";
+
+/* Name of 'PnP ID' characteristic */
+"service.device_information.characteristic.pnp_id.name" = "PnP ID";
+
+/* Name of 'Serial Number' characteristic */
+"service.device_information.characteristic.serial_number.name" = "Serial Number";
+
+/* Name of 'Software Revision' characteristic */
+"service.device_information.characteristic.software_revision.name" = "Software Revision";
+
+/* Name of 'System ID' characteristic */
+"service.device_information.characteristic.system_id.name" = "System ID";
+
+/* Name of 'Device Information' service */
+"service.device_information.name" = "Device Information";
+
