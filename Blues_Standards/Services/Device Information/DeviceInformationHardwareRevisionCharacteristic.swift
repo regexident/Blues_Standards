@@ -11,12 +11,18 @@ import Foundation
 import Blues
 import Result
 
-public struct DeviceInformationHardwareRevision {
+public struct HardwareRevision {
     public let string: String
 }
 
+extension HardwareRevision: CustomStringConvertible {
+    public var description: String {
+        return self.string
+    }
+}
+
 public struct DeviceInformationHardwareRevisionTransformer: CharacteristicValueTransformer {
-    public typealias Value = DeviceInformationHardwareRevision
+    public typealias Value = HardwareRevision
 
     private static let codingError = "Expected UTF-8 encoded string value."
 
@@ -24,7 +30,7 @@ public struct DeviceInformationHardwareRevisionTransformer: CharacteristicValueT
         guard let string = String(data: data, encoding: .utf8) else {
             return .err(.decodingFailed(message: DeviceInformationHardwareRevisionTransformer.codingError))
         }
-        return .ok(DeviceInformationHardwareRevision(string: string))
+        return .ok(HardwareRevision(string: string))
     }
 
     public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
@@ -49,8 +55,6 @@ public class DeviceInformationHardwareRevisionCharacteristic:
     }
 
     public weak var delegate: CharacteristicDelegate? = nil
-
-    open override var shouldSubscribeToNotificationsAutomatically: Bool {
-        return false
-    }
 }
+
+extension DeviceInformationHardwareRevisionCharacteristic: StringConvertibleCharacteristicProtocol {}

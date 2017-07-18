@@ -11,12 +11,18 @@ import Foundation
 import Blues
 import Result
 
-public struct DeviceInformationSerialNumber {
+public struct SerialNumber {
     public let string: String
 }
 
+extension SerialNumber: CustomStringConvertible {
+    public var description: String {
+        return self.string
+    }
+}
+
 public struct DeviceInformationSerialNumberTransformer: CharacteristicValueTransformer {
-    public typealias Value = DeviceInformationSerialNumber
+    public typealias Value = SerialNumber
 
     private static let codingError = "Expected UTF-8 encoded string value."
 
@@ -24,7 +30,7 @@ public struct DeviceInformationSerialNumberTransformer: CharacteristicValueTrans
         guard let string = String(data: data, encoding: .utf8) else {
             return .err(.decodingFailed(message: DeviceInformationSerialNumberTransformer.codingError))
         }
-        return .ok(DeviceInformationSerialNumber(string: string))
+        return .ok(SerialNumber(string: string))
     }
 
     public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
@@ -49,8 +55,6 @@ public class DeviceInformationSerialNumberCharacteristic:
     }
 
     public weak var delegate: CharacteristicDelegate? = nil
-
-    open override var shouldSubscribeToNotificationsAutomatically: Bool {
-        return false
-    }
 }
+
+extension DeviceInformationSerialNumberCharacteristic: StringConvertibleCharacteristicProtocol {}

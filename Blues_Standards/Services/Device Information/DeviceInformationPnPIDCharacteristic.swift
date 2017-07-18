@@ -11,15 +11,26 @@ import Foundation
 import Blues
 import Result
 
-public struct DeviceInformationPnPID {
+public struct PnPID {
     public let vendorIDSource: UInt8
     public let vendorID: UInt16
     public let productID: UInt16
     public let productVersion: UInt16
 }
 
+extension PnPID: CustomStringConvertible {
+    public var description: String {
+        return [
+            "vendorIDSource = \(self.vendorIDSource)",
+            "vendorID = \(self.vendorID)",
+            "productID = \(self.productID)",
+            "productVersion = \(self.productVersion)",
+        ].joined(separator: ", ")
+    }
+}
+
 public struct DeviceInformationPnPIDTransformer: CharacteristicValueTransformer {
-    public typealias Value = DeviceInformationPnPID
+    public typealias Value = PnPID
 
     private static let codingError = "Expected UTF-8 encoded string value."
 
@@ -29,7 +40,7 @@ public struct DeviceInformationPnPIDTransformer: CharacteristicValueTransformer 
             return .err(.decodingFailed(message: "Expected data of \(expectedLength) bytes, found \(data.count)."))
         }
         return data.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
-            return .ok(DeviceInformationPnPID(
+            return .ok(PnPID(
                 vendorIDSource: buffer[6],
                 vendorID: UInt16(buffer[4] << 8) & UInt16(buffer[5]),
                 productID: UInt16(buffer[2] << 8) & UInt16(buffer[3]),
@@ -60,8 +71,6 @@ public class DeviceInformationPnPIDCharacteristic:
     }
 
     public weak var delegate: CharacteristicDelegate? = nil
-
-    open override var shouldSubscribeToNotificationsAutomatically: Bool {
-        return false
-    }
 }
+
+extension DeviceInformationPnPIDCharacteristic: StringConvertibleCharacteristicProtocol {}

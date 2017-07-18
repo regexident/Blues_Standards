@@ -11,12 +11,18 @@ import Foundation
 import Blues
 import Result
 
-public struct DeviceInformationModelNumber {
+public struct ModelNumber {
     public let string: String
 }
 
+extension ModelNumber: CustomStringConvertible {
+    public var description: String {
+        return self.string
+    }
+}
+
 public struct DeviceInformationModelNumberTransformer: CharacteristicValueTransformer {
-    public typealias Value = DeviceInformationModelNumber
+    public typealias Value = ModelNumber
 
     private static let codingError = "Expected UTF-8 encoded string value."
 
@@ -24,7 +30,7 @@ public struct DeviceInformationModelNumberTransformer: CharacteristicValueTransf
         guard let string = String(data: data, encoding: .utf8) else {
             return .err(.decodingFailed(message: DeviceInformationModelNumberTransformer.codingError))
         }
-        return .ok(DeviceInformationModelNumber(string: string))
+        return .ok(ModelNumber(string: string))
     }
 
     public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
@@ -49,8 +55,6 @@ public class DeviceInformationModelNumberCharacteristic:
     }
 
     public weak var delegate: CharacteristicDelegate? = nil
-
-    open override var shouldSubscribeToNotificationsAutomatically: Bool {
-        return false
-    }
 }
+
+extension DeviceInformationModelNumberCharacteristic: StringConvertibleCharacteristicProtocol {}

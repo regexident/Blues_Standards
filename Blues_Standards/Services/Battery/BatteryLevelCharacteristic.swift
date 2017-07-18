@@ -70,8 +70,6 @@ public class BatteryLevelCharacteristic:
     }
 
     public weak var delegate: CharacteristicDelegate? = nil
-
-    open override var shouldSubscribeToNotificationsAutomatically: Bool {
-        return false
-    }
 }
+
+extension BatteryLevelCharacteristic: StringConvertibleCharacteristicProtocol {}

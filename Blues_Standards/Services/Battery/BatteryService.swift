@@ -35,3 +35,4 @@ extension BatteryService: ServiceDataSource {
         }
     }
 }
+// MARK: - Battery Namespace public enum Battery {}  extension Battery {     public class Service: Blues.Service, DelegatedServiceProtocol, TypeIdentifiable {         public static let typeIdentifier = Identifier(string: "180F")          open override var name: String? {             return NSLocalizedString(                 "service.battery.name",                 bundle: Bundle(for: type(of: self)),                 comment: "Name of 'Battery' service"             )         }          weak public var delegate: ServiceDelegate?     } } 

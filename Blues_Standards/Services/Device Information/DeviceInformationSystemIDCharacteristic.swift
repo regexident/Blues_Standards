@@ -11,13 +11,22 @@ import Foundation
 import Blues
 import Result
 
-public struct DeviceInformationSystemID {
+public struct SystemID {
     public let manufacturerIdentifier: UInt64
     public let organizationallyUniqueIdentifier: UInt32
 }
 
+extension SystemID: CustomStringConvertible {
+    public var description: String {
+        return [
+            "manufacturerIdentifier = \(self.manufacturerIdentifier)",
+            "organizationallyUniqueIdentifier = \(self.organizationallyUniqueIdentifier)",
+        ].joined(separator: ", ")
+    }
+}
+
 public struct DeviceInformationSystemIDTransformer: CharacteristicValueTransformer {
-    public typealias Value = DeviceInformationSystemID
+    public typealias Value = SystemID
 
     private static let codingError = "Expected UTF-8 encoded string value."
 
@@ -28,7 +37,7 @@ public struct DeviceInformationSystemIDTransformer: CharacteristicValueTransform
         }
         return data.withUnsafeBytes { (buffer: UnsafePointer<UInt64>) in
             let bytes = UInt64(bigEndian: buffer[0])
-            return .ok(DeviceInformationSystemID(
+            return .ok(SystemID(
                 manufacturerIdentifier: bytes & (~0 >> 24),
                 organizationallyUniqueIdentifier: UInt32(bytes >> 40)
             ))
@@ -57,8 +66,6 @@ public class DeviceInformationSystemIDCharacteristic:
     }
 
     public weak var delegate: CharacteristicDelegate? = nil
-
-    open override var shouldSubscribeToNotificationsAutomatically: Bool {
-        return false
-    }
 }
+
+extension DeviceInformationSystemIDCharacteristic: StringConvertibleCharacteristicProtocol {}
