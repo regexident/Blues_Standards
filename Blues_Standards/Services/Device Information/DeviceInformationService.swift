@@ -23,18 +23,6 @@ open class DeviceInformationService: Service, DelegatedServiceProtocol, TypeIden
     }
 
     weak public var delegate: ServiceDelegate?
-
-    open override var automaticallyDiscoveredCharacteristics: [Identifier]? {
-        return [
-            DeviceInformationManufacturerNameCharacteristic.typeIdentifier,
-            DeviceInformationModelNumberCharacteristic.typeIdentifier,
-            DeviceInformationSerialNumberCharacteristic.typeIdentifier,
-            DeviceInformationHardwareRevisionCharacteristic.typeIdentifier,
-            DeviceInformationFirmwareRevisionCharacteristic.typeIdentifier,
-            DeviceInformationSoftwareRevisionCharacteristic.typeIdentifier,
-            DeviceInformationSystemIDCharacteristic.typeIdentifier,
-        ]
-    }
 }
 
 extension DeviceInformationService: ServiceDataSource {

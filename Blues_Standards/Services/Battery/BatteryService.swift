@@ -23,12 +23,6 @@ public class BatteryService: Service, DelegatedServiceProtocol, TypeIdentifiable
     }
 
     weak public var delegate: ServiceDelegate?
-
-    open override var automaticallyDiscoveredCharacteristics: [Identifier]? {
-        return [
-            BatteryLevelCharacteristic.typeIdentifier
-        ]
-    }
 }
 
 extension BatteryService: ServiceDataSource {
