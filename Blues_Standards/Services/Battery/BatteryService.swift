@@ -11,28 +11,32 @@ import Foundation
 import Blues
 import Result
 
-public class BatteryService: Service, DelegatedServiceProtocol, TypeIdentifiable {
-    public static let typeIdentifier = Identifier(string: "180F")
+// Poor man's namespace:
+public enum Battery {}
 
-    open override var name: String? {
-        return NSLocalizedString(
-            "service.battery.name",
-            bundle: Bundle(for: type(of: self)),
-            comment: "Name of 'Battery' service"
-        )
+extension Battery {
+    public class Service: Blues.Service, DelegatedServiceProtocol, TypeIdentifiable {
+        public static let typeIdentifier = Identifier(string: "180F")
+
+        open override var name: String? {
+            return NSLocalizedString(
+                "service.battery.name",
+                bundle: Bundle(for: type(of: self)),
+                comment: "Name of 'Battery' service"
+            )
+        }
+
+        weak public var delegate: ServiceDelegate?
     }
-
-    weak public var delegate: ServiceDelegate?
 }
 
-extension BatteryService: ServiceDataSource {
+extension Battery.Service: ServiceDataSource {
     public func characteristic(with identifier: Identifier, for service: Service) -> Characteristic {
         switch identifier {
-        case BatteryLevelCharacteristic.typeIdentifier:
-            return BatteryLevelCharacteristic(identifier: identifier, service: service)
+        case Battery.LevelCharacteristic.typeIdentifier:
+            return Battery.LevelCharacteristic(identifier: identifier, service: service)
         default:
             return DefaultCharacteristic(identifier: identifier, service: service)
         }
     }
 }
-// MARK: - Battery Namespace public enum Battery {}  extension Battery {     public class Service: Blues.Service, DelegatedServiceProtocol, TypeIdentifiable {         public static let typeIdentifier = Identifier(string: "180F")          open override var name: String? {             return NSLocalizedString(                 "service.battery.name",                 bundle: Bundle(for: type(of: self)),                 comment: "Name of 'Battery' service"             )         }          weak public var delegate: ServiceDelegate?     } } 
