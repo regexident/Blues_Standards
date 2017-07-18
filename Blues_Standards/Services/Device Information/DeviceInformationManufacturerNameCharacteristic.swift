@@ -12,38 +12,45 @@ import Blues
 import Result
 
 extension DeviceInformation {
-    public struct ManufacturerName {
+    // Poor man's namespace:
+    public enum ManufacturerName {}
+}
+
+extension DeviceInformation.ManufacturerName {
+    public struct Value {
         public let string: String
     }
 }
 
-extension DeviceInformation.ManufacturerName: CustomStringConvertible {
+extension DeviceInformation.ManufacturerName.Value: CustomStringConvertible {
     public var description: String {
         return self.string
     }
 }
 
-extension DeviceInformation {
-    public struct ManufacturerNameTransformer: CharacteristicValueTransformer {
-        public typealias Value = ManufacturerName
+extension DeviceInformation.ManufacturerName {
+    public struct Transformer: CharacteristicValueTransformer {
+        public typealias Value = DeviceInformation.ManufacturerName.Value
 
         private static let codingError = "Expected UTF-8 encoded string value."
 
         public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
             guard let string = String(data: data, encoding: .utf8) else {
-                return .err(.decodingFailed(message: ManufacturerNameTransformer.codingError))
+                return .err(.decodingFailed(message: Transformer.codingError))
             }
-            return .ok(ManufacturerName(string: string))
+            return .ok(Value(string: string))
         }
 
         public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
             return .err(.transformNotImplemented)
         }
     }
+}
 
-    public class ManufacturerNameCharacteristic:
-        Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-        public typealias Transformer = ManufacturerNameTransformer
+extension DeviceInformation.ManufacturerName {
+    public class Characteristic:
+        Blues.Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
+        public typealias Transformer = DeviceInformation.ManufacturerName.Transformer
 
         public let transformer: Transformer = .init()
 
@@ -61,4 +68,4 @@ extension DeviceInformation {
     }
 }
 
-extension DeviceInformation.ManufacturerNameCharacteristic: StringConvertibleCharacteristicProtocol {}
+extension DeviceInformation.ManufacturerName.Characteristic: StringConvertibleCharacteristicProtocol {}

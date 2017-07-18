@@ -12,38 +12,45 @@ import Blues
 import Result
 
 extension DeviceInformation {
-    public struct SerialNumber {
+    // Poor man's namespace:
+    public enum SerialNumber {}
+}
+
+extension DeviceInformation.SerialNumber {
+    public struct Value {
         public let string: String
     }
 }
 
-extension DeviceInformation.SerialNumber: CustomStringConvertible {
+extension DeviceInformation.SerialNumber.Value: CustomStringConvertible {
     public var description: String {
         return self.string
     }
 }
 
-extension DeviceInformation {
-    public struct SerialNumberTransformer: CharacteristicValueTransformer {
-        public typealias Value = SerialNumber
+extension DeviceInformation.SerialNumber {
+    public struct Transformer: CharacteristicValueTransformer {
+        public typealias Value = DeviceInformation.SerialNumber.Value
 
         private static let codingError = "Expected UTF-8 encoded string value."
 
         public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
             guard let string = String(data: data, encoding: .utf8) else {
-                return .err(.decodingFailed(message: SerialNumberTransformer.codingError))
+                return .err(.decodingFailed(message: Transformer.codingError))
             }
-            return .ok(SerialNumber(string: string))
+            return .ok(Value(string: string))
         }
 
         public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
             return .err(.transformNotImplemented)
         }
     }
+}
 
-    public class SerialNumberCharacteristic:
-        Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-        public typealias Transformer = SerialNumberTransformer
+extension DeviceInformation.SerialNumber {
+    public class Characteristic:
+        Blues.Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
+        public typealias Transformer = DeviceInformation.SerialNumber.Transformer
 
         public let transformer: Transformer = .init()
 
@@ -61,4 +68,4 @@ extension DeviceInformation {
     }
 }
 
-extension DeviceInformation.SerialNumberCharacteristic: StringConvertibleCharacteristicProtocol {}
+extension DeviceInformation.SerialNumber.Characteristic: StringConvertibleCharacteristicProtocol {}

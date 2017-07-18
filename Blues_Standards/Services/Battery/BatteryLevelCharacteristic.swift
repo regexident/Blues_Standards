@@ -12,27 +12,32 @@ import Blues
 import Result
 
 extension Battery {
-    public struct Level {
+    // Poor man's namespace:
+    public enum Level {}
+}
+
+extension Battery.Level {
+    public struct Value {
         /// Normalized battery level (0 == 0%, 100 == 100%)
         public let value: UInt8
     }
 }
 
-extension Battery.Level: Equatable {
-    public static func == (lhs: Battery.Level, rhs: Battery.Level) -> Bool {
+extension Battery.Level.Value: Equatable {
+    public static func == (lhs: Battery.Level.Value, rhs: Battery.Level.Value) -> Bool {
         return lhs.value == rhs.value
     }
 }
 
-extension Battery.Level: CustomStringConvertible {
+extension Battery.Level.Value: CustomStringConvertible {
     public var description: String {
-        return "\(self.value)%"
+        return "\(self.value) %"
     }
 }
 
-extension Battery {
-    public struct LevelTransformer: CharacteristicValueTransformer {
-        public typealias Value = Battery.Level
+extension Battery.Level {
+    public struct Transformer: CharacteristicValueTransformer {
+        public typealias Value = Battery.Level.Value
 
         private static let codingError = "Expected value within 0 and 100 (inclusive)."
 
@@ -44,9 +49,9 @@ extension Battery {
             return data.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
                 let byte = buffer[0]
                 if byte <= 100 {
-                    return .ok(Level(value: byte))
+                    return .ok(Value(value: byte))
                 } else {
-                    return .err(.decodingFailed(message: LevelTransformer.codingError))
+                    return .err(.decodingFailed(message: Transformer.codingError))
                 }
             }
         }
@@ -55,10 +60,12 @@ extension Battery {
             return .err(.transformNotImplemented)
         }
     }
+}
 
-    public class LevelCharacteristic:
-        Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-        public typealias Transformer = LevelTransformer
+extension Battery.Level {
+    public class Characteristic:
+        Blues.Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
+        public typealias Transformer = Battery.Level.Transformer
 
         public let transformer: Transformer = .init()
 
@@ -76,4 +83,4 @@ extension Battery {
     }
 }
 
-extension Battery.LevelCharacteristic: StringConvertibleCharacteristicProtocol {}
+extension Battery.Level.Characteristic: StringConvertibleCharacteristicProtocol {}

@@ -33,20 +33,22 @@ extension DeviceInformation {
 extension DeviceInformation.Service: ServiceDataSource {
     public func characteristic(with identifier: Identifier, for service: Service) -> Characteristic {
         switch identifier {
-        case DeviceInformation.ManufacturerNameCharacteristic.typeIdentifier:
-            return DeviceInformation.ManufacturerNameCharacteristic(identifier: identifier, service: service)
-        case DeviceInformation.ModelNumberCharacteristic.typeIdentifier:
-            return DeviceInformation.ModelNumberCharacteristic(identifier: identifier, service: service)
-        case DeviceInformation.SerialNumberCharacteristic.typeIdentifier:
-            return DeviceInformation.SerialNumberCharacteristic(identifier: identifier, service: service)
-        case DeviceInformation.HardwareRevisionCharacteristic.typeIdentifier:
-            return DeviceInformation.HardwareRevisionCharacteristic(identifier: identifier, service: service)
-        case DeviceInformation.FirmwareRevisionCharacteristic.typeIdentifier:
-            return DeviceInformation.FirmwareRevisionCharacteristic(identifier: identifier, service: service)
-        case DeviceInformation.SoftwareRevisionCharacteristic.typeIdentifier:
-            return DeviceInformation.SoftwareRevisionCharacteristic(identifier: identifier, service: service)
-        case DeviceInformation.SystemIDCharacteristic.typeIdentifier:
-            return DeviceInformation.SystemIDCharacteristic(identifier: identifier, service: service)
+        case DeviceInformation.ManufacturerName.Characteristic.typeIdentifier:
+            return DeviceInformation.ManufacturerName.Characteristic(identifier: identifier, service: service)
+        case DeviceInformation.ModelNumber.Characteristic.typeIdentifier:
+            return DeviceInformation.ModelNumber.Characteristic(identifier: identifier, service: service)
+        case DeviceInformation.SerialNumber.Characteristic.typeIdentifier:
+            return DeviceInformation.SerialNumber.Characteristic(identifier: identifier, service: service)
+        case DeviceInformation.HardwareRevision.Characteristic.typeIdentifier:
+            return DeviceInformation.HardwareRevision.Characteristic(identifier: identifier, service: service)
+        case DeviceInformation.FirmwareRevision.Characteristic.typeIdentifier:
+            return DeviceInformation.FirmwareRevision.Characteristic(identifier: identifier, service: service)
+        case DeviceInformation.SoftwareRevision.Characteristic.typeIdentifier:
+            return DeviceInformation.SoftwareRevision.Characteristic(identifier: identifier, service: service)
+        case DeviceInformation.SystemID.Characteristic.typeIdentifier:
+            return DeviceInformation.SystemID.Characteristic(identifier: identifier, service: service)
+        case DeviceInformation.PnPID.Characteristic.typeIdentifier:
+            return DeviceInformation.PnPID.Characteristic(identifier: identifier, service: service)
         default:
             return DefaultCharacteristic(identifier: identifier, service: service)
         }

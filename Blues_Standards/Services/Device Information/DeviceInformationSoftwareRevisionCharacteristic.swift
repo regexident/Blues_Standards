@@ -12,28 +12,33 @@ import Blues
 import Result
 
 extension DeviceInformation {
-    public struct SoftwareRevision {
+    // Poor man's namespace:
+    public enum SoftwareRevision {}
+}
+
+extension DeviceInformation.SoftwareRevision {
+    public struct Value {
         public let string: String
     }
 }
 
-extension DeviceInformation.SoftwareRevision: CustomStringConvertible {
+extension DeviceInformation.SoftwareRevision.Value: CustomStringConvertible {
     public var description: String {
         return self.string
     }
 }
 
-extension DeviceInformation {
-    public struct SoftwareRevisionTransformer: CharacteristicValueTransformer {
-        public typealias Value = SoftwareRevision
+extension DeviceInformation.SoftwareRevision {
+    public struct Transformer: CharacteristicValueTransformer {
+        public typealias Value = DeviceInformation.SoftwareRevision.Value
 
         private static let codingError = "Expected UTF-8 encoded string value."
 
         public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
             guard let string = String(data: data, encoding: .utf8) else {
-                return .err(.decodingFailed(message: SoftwareRevisionTransformer.codingError))
+                return .err(.decodingFailed(message: Transformer.codingError))
             }
-            return .ok(SoftwareRevision(string: string))
+            return .ok(Value(string: string))
         }
 
         public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
@@ -41,9 +46,9 @@ extension DeviceInformation {
         }
     }
 
-    public class SoftwareRevisionCharacteristic:
-        Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-        public typealias Transformer = SoftwareRevisionTransformer
+    public class Characteristic:
+        Blues.Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
+        public typealias Transformer = DeviceInformation.SoftwareRevision.Transformer
 
         public let transformer: Transformer = .init()
 
@@ -61,4 +66,4 @@ extension DeviceInformation {
     }
 }
 
-extension DeviceInformation.SoftwareRevisionCharacteristic: StringConvertibleCharacteristicProtocol {}
+extension DeviceInformation.SoftwareRevision.Characteristic: StringConvertibleCharacteristicProtocol {}

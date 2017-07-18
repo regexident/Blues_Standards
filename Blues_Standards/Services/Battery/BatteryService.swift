@@ -33,8 +33,8 @@ extension Battery {
 extension Battery.Service: ServiceDataSource {
     public func characteristic(with identifier: Identifier, for service: Service) -> Characteristic {
         switch identifier {
-        case Battery.LevelCharacteristic.typeIdentifier:
-            return Battery.LevelCharacteristic(identifier: identifier, service: service)
+        case Battery.Level.Characteristic.typeIdentifier:
+            return Battery.Level.Characteristic(identifier: identifier, service: service)
         default:
             return DefaultCharacteristic(identifier: identifier, service: service)
         }

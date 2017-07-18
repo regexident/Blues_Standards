@@ -12,13 +12,18 @@ import Blues
 import Result
 
 extension DeviceInformation {
-    public struct SystemID {
+    // Poor man's namespace:
+    public enum SystemID {}
+}
+
+extension DeviceInformation.SystemID {
+    public struct Value {
         public let manufacturerIdentifier: UInt64
         public let organizationallyUniqueIdentifier: UInt32
     }
 }
 
-extension DeviceInformation.SystemID: CustomStringConvertible {
+extension DeviceInformation.SystemID.Value: CustomStringConvertible {
     public var description: String {
         return [
             "manufacturerIdentifier = \(self.manufacturerIdentifier)",
@@ -27,9 +32,9 @@ extension DeviceInformation.SystemID: CustomStringConvertible {
     }
 }
 
-extension DeviceInformation {
-    public struct SystemIDTransformer: CharacteristicValueTransformer {
-        public typealias Value = SystemID
+extension DeviceInformation.SystemID {
+    public struct Transformer: CharacteristicValueTransformer {
+        public typealias Value = DeviceInformation.SystemID.Value
 
         private static let codingError = "Expected UTF-8 encoded string value."
 
@@ -40,7 +45,7 @@ extension DeviceInformation {
             }
             return data.withUnsafeBytes { (buffer: UnsafePointer<UInt64>) in
                 let bytes = UInt64(bigEndian: buffer[0])
-                return .ok(SystemID(
+                return .ok(Value(
                     manufacturerIdentifier: bytes & (~0 >> 24),
                     organizationallyUniqueIdentifier: UInt32(bytes >> 40)
                 ))
@@ -52,9 +57,9 @@ extension DeviceInformation {
         }
     }
 
-    public class SystemIDCharacteristic:
-        Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-        public typealias Transformer = SystemIDTransformer
+    public class Characteristic:
+        Blues.Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
+        public typealias Transformer = DeviceInformation.SystemID.Transformer
 
         public let transformer: Transformer = .init()
 
@@ -72,4 +77,4 @@ extension DeviceInformation {
     }
 }
 
-extension DeviceInformation.SystemIDCharacteristic: StringConvertibleCharacteristicProtocol {}
+extension DeviceInformation.SystemID.Characteristic: StringConvertibleCharacteristicProtocol {}
