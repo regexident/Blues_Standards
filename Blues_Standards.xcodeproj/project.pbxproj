@@ -25,6 +25,18 @@
 		BF6DA1C01E71AFCE00F35943 /* Blues_Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF6DA1F71E71B4CB00F35943 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
 		BF6DA1F91E71B4CB00F35943 /* BatteryLevelCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */; };
+		BF70B4A91F30E6D2005FCCD9 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
+		BF70B4AA1F30E6D2005FCCD9 /* BatteryLevelCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */; };
+		BF70B4AB1F30E6D2005FCCD9 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
+		BF70B4AC1F30E6D2005FCCD9 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */; };
+		BF70B4AD1F30E6D2005FCCD9 /* DeviceInformationModelNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */; };
+		BF70B4AE1F30E6D2005FCCD9 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */; };
+		BF70B4AF1F30E6D2005FCCD9 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */; };
+		BF70B4B01F30E6D2005FCCD9 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */; };
+		BF70B4B11F30E6D2005FCCD9 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */; };
+		BF70B4B21F30E6D2005FCCD9 /* DeviceInformationSystemIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */; };
+		BF70B4B31F30E6D2005FCCD9 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
+		BF70B4EB1F30E934005FCCD9 /* libBlues.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF70B4EA1F30E934005FCCD9 /* libBlues.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +48,18 @@
 			remoteInfo = Blues_Standards;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BF70B49E1F30E6AA005FCCD9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationPnPIDCharacteristic.swift; sourceTree = "<group>"; };
@@ -51,6 +75,8 @@
 		BF6DA1BF1E71AFCE00F35943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
 		BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryLevelCharacteristic.swift; sourceTree = "<group>"; };
+		BF70B4A01F30E6AA005FCCD9 /* libBlues_Standards.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBlues_Standards.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF70B4EA1F30E934005FCCD9 /* libBlues.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBlues.a; path = "Carthage/Checkouts/Blues/build/Debug-iphoneos/libBlues.a"; sourceTree = "<group>"; };
 		BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceInformationManufacturerNameCharacteristic.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationService.swift; sourceTree = "<group>"; };
 		BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceInformationModelNumberCharacteristic.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -79,6 +105,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF70B49D1F30E6AA005FCCD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF70B4EB1F30E934005FCCD9 /* libBlues.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,6 +131,7 @@
 			children = (
 				BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */,
 				BF6DA1B81E71AFCE00F35943 /* Blues_StandardsTests.xctest */,
+				BF70B4A01F30E6AA005FCCD9 /* libBlues_Standards.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +194,7 @@
 		BF84AD891EC33C3700FAD246 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF70B4EA1F30E934005FCCD9 /* libBlues.a */,
 				BF31B58A1EFA798B00226C5A /* Blues.framework */,
 				BF31B58B1EFA798B00226C5A /* Result.framework */,
 			);
@@ -215,6 +251,23 @@
 			productReference = BF6DA1B81E71AFCE00F35943 /* Blues_StandardsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BF70B49F1F30E6AA005FCCD9 /* Blues_Standards (Static) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF70B4A81F30E6AA005FCCD9 /* Build configuration list for PBXNativeTarget "Blues_Standards (Static)" */;
+			buildPhases = (
+				BF70B49C1F30E6AA005FCCD9 /* Sources */,
+				BF70B49D1F30E6AA005FCCD9 /* Frameworks */,
+				BF70B49E1F30E6AA005FCCD9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Blues_Standards (Static)";
+			productName = "Blues_Standards (Static)";
+			productReference = BF70B4A01F30E6AA005FCCD9 /* libBlues_Standards.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -256,6 +309,7 @@
 			targets = (
 				BF6DA1AE1E71AFCE00F35943 /* Blues_Standards */,
 				BF6DA1B71E71AFCE00F35943 /* Blues_StandardsTests */,
+				BF70B49F1F30E6AA005FCCD9 /* Blues_Standards (Static) */,
 			);
 		};
 /* End PBXProject section */
@@ -303,6 +357,24 @@
 			files = (
 				BF6DA1BE1E71AFCE00F35943 /* Blues_StandardsTests.swift in Sources */,
 				BF180BF91EC372BB008F7982 /* BatteryLevelTransformerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF70B49C1F30E6AA005FCCD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF70B4A91F30E6D2005FCCD9 /* BatteryService.swift in Sources */,
+				BF70B4AA1F30E6D2005FCCD9 /* BatteryLevelCharacteristic.swift in Sources */,
+				BF70B4AB1F30E6D2005FCCD9 /* DeviceInformationService.swift in Sources */,
+				BF70B4AC1F30E6D2005FCCD9 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */,
+				BF70B4AD1F30E6D2005FCCD9 /* DeviceInformationModelNumberCharacteristic.swift in Sources */,
+				BF70B4AE1F30E6D2005FCCD9 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */,
+				BF70B4AF1F30E6D2005FCCD9 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */,
+				BF70B4B01F30E6D2005FCCD9 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */,
+				BF70B4B11F30E6D2005FCCD9 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */,
+				BF70B4B21F30E6D2005FCCD9 /* DeviceInformationSystemIDCharacteristic.swift in Sources */,
+				BF70B4B31F30E6D2005FCCD9 /* DeviceInformationPnPIDCharacteristic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +588,46 @@
 			};
 			name = Release;
 		};
+		BF70B4A61F30E6AA005FCCD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Blues/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Blues_Standards;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF70B4A71F30E6AA005FCCD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Blues/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Blues_Standards;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -542,6 +654,15 @@
 			buildConfigurations = (
 				BF6DA1C71E71AFCE00F35943 /* Debug */,
 				BF6DA1C81E71AFCE00F35943 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF70B4A81F30E6AA005FCCD9 /* Build configuration list for PBXNativeTarget "Blues_Standards (Static)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF70B4A61F30E6AA005FCCD9 /* Debug */,
+				BF70B4A71F30E6AA005FCCD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
