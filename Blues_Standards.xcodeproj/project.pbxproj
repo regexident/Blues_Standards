@@ -66,6 +66,7 @@
 		BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryLevelTransformerTests.swift; sourceTree = "<group>"; };
 		BF31B58A1EFA798B00226C5A /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Blues.framework"; sourceTree = "<group>"; };
 		BF31B58B1EFA798B00226C5A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Result.framework"; sourceTree = "<group>"; };
+		BF3304231F372E870011FE87 /* Universal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Universal.xcconfig; sourceTree = "<group>"; };
 		BF5CD5741F1CB29000C2702A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blues_Standards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blues_Standards.h; sourceTree = "<group>"; };
@@ -116,13 +117,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3304221F372E870011FE87 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				BF3304231F372E870011FE87 /* Universal.xcconfig */,
+			);
+			name = Configs;
+			path = Blues_Standards.xcodeproj/Configs;
+			sourceTree = "<group>";
+		};
 		BF6DA1A51E71AFCE00F35943 = {
 			isa = PBXGroup;
 			children = (
 				BF6DA1B11E71AFCE00F35943 /* Blues_Standards */,
 				BF6DA1BC1E71AFCE00F35943 /* Blues_StandardsTests */,
-				BF6DA1B01E71AFCE00F35943 /* Products */,
 				BF84AD891EC33C3700FAD246 /* Frameworks */,
+				BF3304221F372E870011FE87 /* Configs */,
+				BF6DA1B01E71AFCE00F35943 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -515,6 +526,7 @@
 		};
 		BF6DA1C41E71AFCE00F35943 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF3304231F372E870011FE87 /* Universal.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -538,6 +550,7 @@
 		};
 		BF6DA1C51E71AFCE00F35943 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF3304231F372E870011FE87 /* Universal.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -560,6 +573,7 @@
 		};
 		BF6DA1C71E71AFCE00F35943 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF3304231F372E870011FE87 /* Universal.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = RHSV5Y8MLD;
@@ -572,6 +586,7 @@
 		};
 		BF6DA1C81E71AFCE00F35943 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF3304231F372E870011FE87 /* Universal.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = RHSV5Y8MLD;
@@ -584,6 +599,7 @@
 		};
 		BF70B4A61F30E6AA005FCCD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF3304231F372E870011FE87 /* Universal.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -604,6 +620,7 @@
 		};
 		BF70B4A71F30E6AA005FCCD9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF3304231F372E870011FE87 /* Universal.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
