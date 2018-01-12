@@ -18,7 +18,6 @@
 		BF180BF51EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
 		BF180BF91EC372BB008F7982 /* BatteryLevelTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */; };
 		BF31B58C1EFA798B00226C5A /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31B58A1EFA798B00226C5A /* Blues.framework */; };
-		BF31B58D1EFA798B00226C5A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31B58B1EFA798B00226C5A /* Result.framework */; };
 		BF5CD5731F1CB29000C2702A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5CD5751F1CB29000C2702A /* Localizable.strings */; };
 		BF6DA1B91E71AFCE00F35943 /* Blues_Standards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */; };
 		BF6DA1BE1E71AFCE00F35943 /* Blues_StandardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1BD1E71AFCE00F35943 /* Blues_StandardsTests.swift */; };
@@ -65,7 +64,6 @@
 		BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationPnPIDCharacteristic.swift; sourceTree = "<group>"; };
 		BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryLevelTransformerTests.swift; sourceTree = "<group>"; };
 		BF31B58A1EFA798B00226C5A /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Blues.framework"; sourceTree = "<group>"; };
-		BF31B58B1EFA798B00226C5A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Result.framework"; sourceTree = "<group>"; };
 		BF3304231F372E870011FE87 /* Universal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Universal.xcconfig; sourceTree = "<group>"; };
 		BF5CD5741F1CB29000C2702A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blues_Standards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +92,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF31B58C1EFA798B00226C5A /* Blues.framework in Frameworks */,
-				BF31B58D1EFA798B00226C5A /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +204,6 @@
 			children = (
 				BF70B4EA1F30E934005FCCD9 /* libBlues.a */,
 				BF31B58A1EFA798B00226C5A /* Blues.framework */,
-				BF31B58B1EFA798B00226C5A /* Result.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -286,7 +282,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "NWTN Berlin";
 				TargetAttributes = {
 					BF6DA1AE1E71AFCE00F35943 = {
@@ -540,6 +536,7 @@
 				INFOPLIST_FILE = Blues_Standards/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nwtnberlin.Blues-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -564,6 +561,7 @@
 				INFOPLIST_FILE = Blues_Standards/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nwtnberlin.Blues-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -579,6 +577,7 @@
 				DEVELOPMENT_TEAM = RHSV5Y8MLD;
 				INFOPLIST_FILE = Blues_StandardsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nwtnberlin.Blues-StandardsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -592,6 +591,7 @@
 				DEVELOPMENT_TEAM = RHSV5Y8MLD;
 				INFOPLIST_FILE = Blues_StandardsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nwtnberlin.Blues-StandardsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -611,6 +611,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Checkouts/Blues/build/Debug-iphoneos",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Blues_Standards;
 				SKIP_INSTALL = YES;
@@ -632,6 +633,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Checkouts/Blues/build/Debug-iphoneos",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Blues_Standards;
 				SKIP_INSTALL = YES;

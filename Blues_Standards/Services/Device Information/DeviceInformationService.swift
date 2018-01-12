@@ -9,8 +9,6 @@
 import Foundation
 
 import Blues
-import Result
-
 // Poor man's namespace:
 public enum DeviceInformation {}
 

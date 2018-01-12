@@ -9,8 +9,6 @@
 import Foundation
 
 import Blues
-import Result
-
 extension Battery {
     // Poor man's namespace:
     public enum Level {}

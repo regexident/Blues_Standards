@@ -9,8 +9,6 @@
 import Foundation
 
 import Blues
-import Result
-
 extension DeviceInformation {
     // Poor man's namespace:
     public enum FirmwareRevision {}
