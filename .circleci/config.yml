@@ -8,6 +8,22 @@ jobs:
 
     steps:
       - checkout
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
+      - run:
+          name: Update Homebrew
+          command: brew update
+      - run:
+          name: Bootstrap Carthage
+          command: scripts/bootstrap-if-needed.sh
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+            - vendor/bundle
+            - Carthage
 
       # Build the app and run tests
       - run:
