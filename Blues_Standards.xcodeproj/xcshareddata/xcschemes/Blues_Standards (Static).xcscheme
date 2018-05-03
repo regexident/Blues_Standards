@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BF6DA1B71E71AFCE00F35943"
+               BuildableName = "Blues_StandardsTests.xctest"
+               BlueprintName = "Blues_StandardsTests"
+               ReferencedContainer = "container:Blues_Standards.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BF70B49F1F30E6AA005FCCD9"
+            BuildableName = "libBlues_Standards.a"
+            BlueprintName = "Blues_Standards (Static)"
+            ReferencedContainer = "container:Blues_Standards.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
