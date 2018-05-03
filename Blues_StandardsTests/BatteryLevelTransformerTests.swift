@@ -8,14 +8,13 @@
 
 import XCTest
 
-import Result
 import Blues
 
 @testable import Blues_Standards
 
 class BatteryLevelTransformerTests: XCTestCase {
 
-    let transformer = BatteryLevelTransformer()
+    let transformer = Battery.Level.Transformer()
 
     func testTooShort() {
         let data = Data(bytes: [])
@@ -37,7 +36,7 @@ class BatteryLevelTransformerTests: XCTestCase {
         let data = Data(bytes: [0b00000000])
         switch self.transformer.transform(data: data) {
         case .ok(let value):
-            XCTAssertEqual(value, BatteryLevel(value: 0))
+            XCTAssertEqual(value, Battery.Level.Value(value: 0))
         case .err(let error):
             XCTFail("Error: \(error)")
         }
@@ -47,7 +46,7 @@ class BatteryLevelTransformerTests: XCTestCase {
         let data = Data(bytes: [0b00110010])
         switch self.transformer.transform(data: data) {
         case .ok(let value):
-            XCTAssertEqual(value, BatteryLevel(value: 50))
+            XCTAssertEqual(value, Battery.Level.Value(value: 50))
         case .err(let error):
             XCTFail("Error: \(error)")
         }
@@ -57,7 +56,7 @@ class BatteryLevelTransformerTests: XCTestCase {
         let data = Data(bytes: [0b01100100])
         switch self.transformer.transform(data: data) {
         case .ok(let value):
-            XCTAssertEqual(value, BatteryLevel(value: 100))
+            XCTAssertEqual(value, Battery.Level.Value(value: 100))
         case .err(let error):
             XCTFail("Error: \(error)")
         }
