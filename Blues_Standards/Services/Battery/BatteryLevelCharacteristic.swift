@@ -18,6 +18,13 @@ extension Battery.Level {
     public struct Value {
         /// Normalized battery level (0 == 0%, 100 == 100%)
         public let value: UInt8
+
+        public static let empty: Value = .init(value: 0)
+        public static let full: Value = .init(value: 100)
+
+        public init(value: UInt8) {
+            self.value = value
+        }
     }
 }
 
