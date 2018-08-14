@@ -34,6 +34,12 @@ extension Battery.Level.Value: Equatable {
     }
 }
 
+extension Battery.Level.Value: Comparable {
+    public static func < (lhs: Battery.Level.Value, rhs: Battery.Level.Value) -> Bool {
+        return lhs.value < rhs.value
+    }
+}
+
 extension Battery.Level.Value: CustomStringConvertible {
     public var description: String {
         return "\(self.value) %"
