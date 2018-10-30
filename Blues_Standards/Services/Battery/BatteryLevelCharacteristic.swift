@@ -50,19 +50,24 @@ extension Battery.Level {
     public struct Transformer: CharacteristicValueTransformer {
         public typealias Value = Battery.Level.Value
 
+        enum Error: Swift.Error {
+            case wrongDataSize(expected: Int, received: Int)
+            case valueOutOfRange(value: UInt8)
+        }
+        
         private static let codingError = "Expected value within 0 and 100 (inclusive)."
 
         public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
             let expectedLength = 1
             guard data.count == expectedLength else {
-                return .err(.decodingFailed(message: "Expected data of \(expectedLength) bytes, found \(data.count)."))
+                return .err(.decodingFailed(error: Error.wrongDataSize(expected: expectedLength, received: data.count)))
             }
             return data.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
                 let byte = buffer[0]
                 if byte <= 100 {
                     return .ok(Value(value: byte))
                 } else {
-                    return .err(.decodingFailed(message: Transformer.codingError))
+                    return .err(.decodingFailed(error: Error.valueOutOfRange(value: byte)))
                 }
             }
         }

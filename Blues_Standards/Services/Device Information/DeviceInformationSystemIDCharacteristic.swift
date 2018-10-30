@@ -34,13 +34,17 @@ extension DeviceInformation.SystemID {
     public struct Transformer: CharacteristicValueTransformer {
         public typealias Value = DeviceInformation.SystemID.Value
 
-        private static let codingError = "Expected UTF-8 encoded string value."
-
+        enum Error: Swift.Error {
+            case wrongDataSize(expected: Int, received: Int)
+        }
+        
         public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
             let expectedLength = 8
+            
             guard data.count == expectedLength else {
-                return .err(.decodingFailed(message: "Expected data of \(expectedLength) bytes, found \(data.count)."))
+                return .err(.decodingFailed(error: Error.wrongDataSize(expected: expectedLength, received: data.count)))
             }
+            
             return data.withUnsafeBytes { (buffer: UnsafePointer<UInt64>) in
                 let bytes = UInt64(bigEndian: buffer[0])
                 return .ok(Value(

@@ -30,11 +30,13 @@ extension DeviceInformation.ManufacturerName {
     public struct Transformer: CharacteristicValueTransformer {
         public typealias Value = DeviceInformation.ManufacturerName.Value
 
-        private static let codingError = "Expected UTF-8 encoded string value."
+        enum Error: Swift.Error {
+            case unableToDecodeString(data: Data)
+        }
 
         public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
             guard let string = String(data: data, encoding: .utf8) else {
-                return .err(.decodingFailed(message: Transformer.codingError))
+                return .err(.decodingFailed(error: Error.unableToDecodeString(data: data)))
             }
             return .ok(Value(string: string))
         }
