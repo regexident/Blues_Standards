@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF180BEC1EC35C3A008F7982 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
-		BF180BED1EC35CE1008F7982 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */; };
-		BF180BEE1EC360F5008F7982 /* DeviceInformationModelNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */; };
-		BF180BEF1EC3629E008F7982 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */; };
-		BF180BF01EC3629E008F7982 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */; };
-		BF180BF11EC3629E008F7982 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */; };
-		BF180BF21EC3629E008F7982 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */; };
-		BF180BF31EC3629E008F7982 /* DeviceInformationSystemIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */; };
-		BF180BF51EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
 		BF180BF91EC372BB008F7982 /* BatteryLevelTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */; };
 		BF31B58C1EFA798B00226C5A /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31B58A1EFA798B00226C5A /* Blues.framework */; };
 		BF5CD5731F1CB29000C2702A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5CD5751F1CB29000C2702A /* Localizable.strings */; };
+		BF6741E82198489F0048C593 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
+		BF6741E92198489F0048C593 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */; };
+		BF6741EA2198489F0048C593 /* DeviceInformationModelNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */; };
+		BF6741EB2198489F0048C593 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */; };
+		BF6741EC2198489F0048C593 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */; };
+		BF6741ED2198489F0048C593 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */; };
+		BF6741EE2198489F0048C593 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */; };
+		BF6741EF2198489F0048C593 /* DeviceInformationSystemIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */; };
+		BF6741F02198489F0048C593 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
+		BF6741F1219848A00048C593 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
+		BF6741F2219848A00048C593 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */; };
+		BF6741F3219848A00048C593 /* DeviceInformationModelNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */; };
+		BF6741F4219848A00048C593 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */; };
+		BF6741F5219848A00048C593 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */; };
+		BF6741F6219848A00048C593 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */; };
+		BF6741F7219848A00048C593 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */; };
+		BF6741F8219848A00048C593 /* DeviceInformationSystemIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */; };
+		BF6741F9219848A00048C593 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
 		BF6DA1B91E71AFCE00F35943 /* Blues_Standards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */; };
 		BF6DA1BE1E71AFCE00F35943 /* Blues_StandardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1BD1E71AFCE00F35943 /* Blues_StandardsTests.swift */; };
 		BF6DA1C01E71AFCE00F35943 /* Blues_Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,15 +35,6 @@
 		BF6DA1F91E71B4CB00F35943 /* BatteryLevelCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */; };
 		BF70B4A91F30E6D2005FCCD9 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
 		BF70B4AA1F30E6D2005FCCD9 /* BatteryLevelCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */; };
-		BF70B4AB1F30E6D2005FCCD9 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
-		BF70B4AC1F30E6D2005FCCD9 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */; };
-		BF70B4AD1F30E6D2005FCCD9 /* DeviceInformationModelNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7B1EC328F500FAD246 /* DeviceInformationModelNumberCharacteristic.swift */; };
-		BF70B4AE1F30E6D2005FCCD9 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7D1EC3297400FAD246 /* DeviceInformationSerialNumberCharacteristic.swift */; };
-		BF70B4AF1F30E6D2005FCCD9 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD7F1EC32A0B00FAD246 /* DeviceInformationHardwareRevisionCharacteristic.swift */; };
-		BF70B4B01F30E6D2005FCCD9 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD811EC32A4800FAD246 /* DeviceInformationFirmwareRevisionCharacteristic.swift */; };
-		BF70B4B11F30E6D2005FCCD9 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD831EC32A8B00FAD246 /* DeviceInformationSoftwareRevisionCharacteristic.swift */; };
-		BF70B4B21F30E6D2005FCCD9 /* DeviceInformationSystemIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD851EC32B4A00FAD246 /* DeviceInformationSystemIDCharacteristic.swift */; };
-		BF70B4B31F30E6D2005FCCD9 /* DeviceInformationPnPIDCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */; };
 		BF70B4EB1F30E934005FCCD9 /* libBlues.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF70B4EA1F30E934005FCCD9 /* libBlues.a */; };
 /* End PBXBuildFile section */
 
@@ -282,7 +282,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "NWTN Berlin";
 				TargetAttributes = {
 					BF6DA1AE1E71AFCE00F35943 = {
@@ -344,17 +344,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF180BEC1EC35C3A008F7982 /* DeviceInformationService.swift in Sources */,
-				BF180BF11EC3629E008F7982 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */,
+				BF6741EC2198489F0048C593 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */,
+				BF6741EB2198489F0048C593 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */,
 				BF6DA1F91E71B4CB00F35943 /* BatteryLevelCharacteristic.swift in Sources */,
-				BF180BEE1EC360F5008F7982 /* DeviceInformationModelNumberCharacteristic.swift in Sources */,
-				BF180BEF1EC3629E008F7982 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */,
-				BF180BF21EC3629E008F7982 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */,
-				BF180BF01EC3629E008F7982 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */,
-				BF180BED1EC35CE1008F7982 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */,
+				BF6741F02198489F0048C593 /* DeviceInformationPnPIDCharacteristic.swift in Sources */,
+				BF6741ED2198489F0048C593 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */,
+				BF6741E92198489F0048C593 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */,
+				BF6741EF2198489F0048C593 /* DeviceInformationSystemIDCharacteristic.swift in Sources */,
+				BF6741EE2198489F0048C593 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */,
+				BF6741E82198489F0048C593 /* DeviceInformationService.swift in Sources */,
 				BF6DA1F71E71B4CB00F35943 /* BatteryService.swift in Sources */,
-				BF180BF31EC3629E008F7982 /* DeviceInformationSystemIDCharacteristic.swift in Sources */,
-				BF180BF51EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift in Sources */,
+				BF6741EA2198489F0048C593 /* DeviceInformationModelNumberCharacteristic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,17 +371,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6741F5219848A00048C593 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */,
+				BF6741F4219848A00048C593 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */,
 				BF70B4A91F30E6D2005FCCD9 /* BatteryService.swift in Sources */,
+				BF6741F9219848A00048C593 /* DeviceInformationPnPIDCharacteristic.swift in Sources */,
+				BF6741F6219848A00048C593 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */,
+				BF6741F2219848A00048C593 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */,
+				BF6741F8219848A00048C593 /* DeviceInformationSystemIDCharacteristic.swift in Sources */,
+				BF6741F7219848A00048C593 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */,
+				BF6741F1219848A00048C593 /* DeviceInformationService.swift in Sources */,
 				BF70B4AA1F30E6D2005FCCD9 /* BatteryLevelCharacteristic.swift in Sources */,
-				BF70B4AB1F30E6D2005FCCD9 /* DeviceInformationService.swift in Sources */,
-				BF70B4AC1F30E6D2005FCCD9 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */,
-				BF70B4AD1F30E6D2005FCCD9 /* DeviceInformationModelNumberCharacteristic.swift in Sources */,
-				BF70B4AE1F30E6D2005FCCD9 /* DeviceInformationSerialNumberCharacteristic.swift in Sources */,
-				BF70B4AF1F30E6D2005FCCD9 /* DeviceInformationHardwareRevisionCharacteristic.swift in Sources */,
-				BF70B4B01F30E6D2005FCCD9 /* DeviceInformationFirmwareRevisionCharacteristic.swift in Sources */,
-				BF70B4B11F30E6D2005FCCD9 /* DeviceInformationSoftwareRevisionCharacteristic.swift in Sources */,
-				BF70B4B21F30E6D2005FCCD9 /* DeviceInformationSystemIDCharacteristic.swift in Sources */,
-				BF70B4B31F30E6D2005FCCD9 /* DeviceInformationPnPIDCharacteristic.swift in Sources */,
+				BF6741F3219848A00048C593 /* DeviceInformationModelNumberCharacteristic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +420,6 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -428,7 +427,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -462,7 +460,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -482,7 +480,6 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -490,7 +487,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -516,7 +512,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
