@@ -9,89 +9,70 @@
 import Foundation
 
 import Blues
-extension Battery {
-    // Poor man's namespace:
-    public enum Level {}
+
+public struct BatteryLevel {
+    /// Normalized battery level (0 == 0%, 100 == 100%)
+    public let value: UInt8
 }
 
-extension Battery.Level {
-    public struct Value {
-        /// Normalized battery level (0 == 0%, 100 == 100%)
-        public let value: UInt8
-
-        public static let empty: Value = .init(value: 0)
-        public static let full: Value = .init(value: 100)
-
-        public init(value: UInt8) {
-            self.value = value
-        }
-    }
-}
-
-extension Battery.Level.Value: Equatable {
-    public static func == (lhs: Battery.Level.Value, rhs: Battery.Level.Value) -> Bool {
+extension BatteryLevel: Equatable {
+    public static func == (lhs: BatteryLevel, rhs: BatteryLevel) -> Bool {
         return lhs.value == rhs.value
     }
 }
 
-extension Battery.Level.Value: Comparable {
-    public static func < (lhs: Battery.Level.Value, rhs: Battery.Level.Value) -> Bool {
-        return lhs.value < rhs.value
-    }
-}
-
-extension Battery.Level.Value: CustomStringConvertible {
+extension BatteryLevel: CustomStringConvertible {
     public var description: String {
-        return "\(self.value) %"
+        return "\(self.value)%"
     }
 }
 
-extension Battery.Level {
-    public struct Transformer: CharacteristicValueTransformer {
-        public typealias Value = Battery.Level.Value
-
-        private static let codingError = "Expected value within 0 and 100 (inclusive)."
-
-        public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
-            let expectedLength = 1
-            guard data.count == expectedLength else {
-                return .err(.decodingFailed(message: "Expected data of \(expectedLength) bytes, found \(data.count)."))
+public struct BatteryLevelDecoder: ValueDecoder {
+    public typealias Value = BatteryLevel
+    
+    public typealias Input = Data
+    
+    public func decode(_ input: Input) -> Blues.Result<Value, Blues.DecodingError> {
+//        let decoder = FixedWidthIntegerValueCoder(endianness: .bigEndian)
+//        decoder.decode(input)
+        let expectedLength = 1
+        guard input.count == expectedLength else {
+            let message = "Expected data of \(expectedLength) bytes, found \(input.count)."
+            return .err(.init(message: message))
+        }
+        return input.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
+            let byte = buffer[0]
+            if byte <= 100 {
+                return .ok(Value(value: byte))
+            } else {
+                let message = "Expected value within 0 and 100 (inclusive), found \(byte)."
+                return .err(.init(message: message))
             }
-            return data.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
-                let byte = buffer[0]
-                if byte <= 100 {
-                    return .ok(Value(value: byte))
-                } else {
-                    return .err(.decodingFailed(message: Transformer.codingError))
-                }
-            }
-        }
-
-        public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
-            return .err(.transformNotImplemented)
         }
     }
 }
 
-extension Battery.Level {
-    public class Characteristic:
-        Blues.Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-        public typealias Transformer = Battery.Level.Transformer
+public class BatteryLevelCharacteristic:
+Blues.Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
+    public static let typeIdentifier = Identifier(string: "2A19")
+    
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.battery.characteristic.battery_level.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'Battery Level' characteristic"
+        )
+    }
+    
+    public weak var delegate: CharacteristicDelegate? = nil
+}
 
-        public let transformer: Transformer = .init()
-
-        public static let typeIdentifier = Identifier(string: "2A19")
-
-        open override var name: String? {
-            return NSLocalizedString(
-                "service.battery.characteristic.battery_level.name",
-                bundle: Bundle(for: type(of: self)),
-                comment: "Name of 'Battery Level' characteristic"
-            )
-        }
-
-        public weak var delegate: CharacteristicDelegate? = nil
+extension BatteryLevelCharacteristic: TypedReadableCharacteristicProtocol {
+    public typealias Decoder = BatteryLevelDecoder
+    
+    public var decoder: Decoder {
+        return .init()
     }
 }
 
-extension Battery.Level.Characteristic: StringConvertibleCharacteristicProtocol {}
+extension BatteryLevelCharacteristic: StringConvertibleCharacteristicProtocol {}

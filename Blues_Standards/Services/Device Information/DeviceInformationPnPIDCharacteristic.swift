@@ -9,77 +9,68 @@
 import Foundation
 
 import Blues
-extension DeviceInformation {
-    // Poor man's namespace:
-    public enum PnPID {}
+
+public struct DeviceInformationPnPID {
+    public let vendorIDSource: UInt8
+    public let vendorID: UInt16
+    public let productID: UInt16
+    public let productVersion: UInt16
 }
 
-extension DeviceInformation.PnPID {
-    public struct Value {
-        public let vendorIDSource: UInt8
-        public let vendorID: UInt16
-        public let productID: UInt16
-        public let productVersion: UInt16
-    }
-}
-
-extension DeviceInformation.PnPID.Value: CustomStringConvertible {
+extension DeviceInformationPnPID: CustomStringConvertible {
     public var description: String {
         return [
             "vendorIDSource = \(self.vendorIDSource)",
             "vendorID = \(self.vendorID)",
             "productID = \(self.productID)",
             "productVersion = \(self.productVersion)",
-        ].joined(separator: ", ")
+            ].joined(separator: ", ")
     }
 }
 
-extension DeviceInformation.PnPID {
-    public struct Transformer: CharacteristicValueTransformer {
-        public typealias Value = DeviceInformation.PnPID.Value
-
-        private static let codingError = "Expected UTF-8 encoded string value."
-
-        public func transform(data: Data) -> Result<Value, TypedCharacteristicError> {
-            let expectedLength = 8
-            guard data.count == expectedLength else {
-                return .err(.decodingFailed(message: "Expected data of \(expectedLength) bytes, found \(data.count)."))
-            }
-            return data.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
-                return .ok(Value(
-                    vendorIDSource: buffer[6],
-                    vendorID: UInt16(buffer[4] << 8) & UInt16(buffer[5]),
-                    productID: UInt16(buffer[2] << 8) & UInt16(buffer[3]),
-                    productVersion: UInt16(buffer[0] << 8) & UInt16(buffer[1])
-                ))
-            }
+public struct DeviceInformationPnPIDDecoder: ValueDecoder {
+    public typealias Value = DeviceInformationPnPID
+    
+    public typealias Input = Data
+    
+    public func decode(_ input: Input) -> Blues.Result<Value, Blues.DecodingError> {
+        let expectedLength = 8
+        guard input.count == expectedLength else {
+            let message = "Expected data of \(expectedLength) bytes, found \(input.count)."
+            return .err(.init(message: message))
         }
-
-        public func transform(value: Value) -> Result<Data, TypedCharacteristicError> {
-            return .err(.transformNotImplemented)
+        return input.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
+            return .ok(Value(
+                vendorIDSource: buffer[6],
+                vendorID: UInt16(buffer[4] << 8) & UInt16(buffer[5]),
+                productID: UInt16(buffer[2] << 8) & UInt16(buffer[3]),
+                productVersion: UInt16(buffer[0] << 8) & UInt16(buffer[1])
+            ))
         }
     }
 }
 
-extension DeviceInformation.PnPID {
-    public class Characteristic:
-        Blues.Characteristic, DelegatedCharacteristicProtocol, TypedCharacteristicProtocol, TypeIdentifiable {
-        public typealias Transformer = DeviceInformation.PnPID.Transformer
+public class DeviceInformationPnPIDCharacteristic:
+Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
+    public static let typeIdentifier = Identifier(string: "2A23")
+    
+    open override var name: String? {
+        return NSLocalizedString(
+            "service.device_information.characteristic.pnp_id.name",
+            bundle: Bundle(for: type(of: self)),
+            comment: "Name of 'PnP ID' characteristic"
+        )
+    }
+    
+    public weak var delegate: CharacteristicDelegate? = nil
+}
 
-        public let transformer: Transformer = .init()
-
-        public static let typeIdentifier = Identifier(string: "2A23")
-
-        open override var name: String? {
-            return NSLocalizedString(
-                "service.device_information.characteristic.pnp_id.name",
-                bundle: Bundle(for: type(of: self)),
-                comment: "Name of 'PnP ID' characteristic"
-            )
-        }
-
-        public weak var delegate: CharacteristicDelegate? = nil
+extension DeviceInformationPnPIDCharacteristic: TypedReadableCharacteristicProtocol {
+    public typealias Decoder = DeviceInformationPnPIDDecoder
+    
+    public var decoder: Decoder {
+        return .init()
     }
 }
 
-extension DeviceInformation.PnPID.Characteristic: StringConvertibleCharacteristicProtocol {}
+extension DeviceInformationPnPIDCharacteristic: StringConvertibleCharacteristicProtocol {}
