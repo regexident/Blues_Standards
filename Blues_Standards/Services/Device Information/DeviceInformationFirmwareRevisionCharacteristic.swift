@@ -24,15 +24,17 @@ public class DeviceInformationFirmwareRevisionCharacteristic:
 Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "2A26")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    public weak var delegate: CharacteristicDelegate? = nil
+    
+    public override init(identifier: Identifier, service: Service) {
+        super.init(identifier: identifier, service: service)
+        
+        self.name = NSLocalizedString(
             "service.device_information.characteristic.firmware_revision.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'Firmware Revision' characteristic"
         )
     }
-    
-    public weak var delegate: CharacteristicDelegate? = nil
 }
 
 extension DeviceInformationFirmwareRevisionCharacteristic: TypedReadableCharacteristicProtocol {

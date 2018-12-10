@@ -20,19 +20,20 @@ extension DeviceInformationManufacturerName: CustomStringConvertible {
     }
 }
 
-public class DeviceInformationManufacturerNameCharacteristic:
-Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
+public class DeviceInformationManufacturerNameCharacteristic: Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "2A29")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    public weak var delegate: CharacteristicDelegate? = nil
+    
+    public override init(identifier: Identifier, service: Service) {
+        super.init(identifier: identifier, service: service)
+        
+        self.name = NSLocalizedString(
             "service.device_information.characteristic.manufacturer_name.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'Manufacturer Name' characteristic"
         )
     }
-    
-    public weak var delegate: CharacteristicDelegate? = nil
 }
 
 extension DeviceInformationManufacturerNameCharacteristic: TypedReadableCharacteristicProtocol {

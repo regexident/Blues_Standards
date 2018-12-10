@@ -24,15 +24,17 @@ public class DeviceInformationSystemIDCharacteristic:
 Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "2A23")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    public weak var delegate: CharacteristicDelegate? = nil
+    
+    public override init(identifier: Identifier, service: Service) {
+        super.init(identifier: identifier, service: service)
+        
+        self.name = NSLocalizedString(
             "service.device_information.characteristic.system_id.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'System ID' characteristic"
         )
     }
-    
-    public weak var delegate: CharacteristicDelegate? = nil
 }
 
 extension DeviceInformationSystemIDCharacteristic: TypedReadableCharacteristicProtocol {

@@ -33,8 +33,6 @@ public struct BatteryLevelDecoder: ValueDecoder {
     public typealias Input = Data
     
     public func decode(_ input: Input) -> Blues.Result<Value, Blues.DecodingError> {
-//        let decoder = FixedWidthIntegerValueCoder(endianness: .bigEndian)
-//        decoder.decode(input)
         let expectedLength = 1
         guard input.count == expectedLength else {
             let message = "Expected data of \(expectedLength) bytes, found \(input.count)."
@@ -56,15 +54,17 @@ public class BatteryLevelCharacteristic:
 Blues.Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "2A19")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    public weak var delegate: CharacteristicDelegate? = nil
+    
+    public override init(identifier: Identifier, service: Service) {
+        super.init(identifier: identifier, service: service)
+        
+        self.name = NSLocalizedString(
             "service.battery.characteristic.battery_level.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'Battery Level' characteristic"
         )
     }
-    
-    public weak var delegate: CharacteristicDelegate? = nil
 }
 
 extension BatteryLevelCharacteristic: TypedReadableCharacteristicProtocol {

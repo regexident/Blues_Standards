@@ -13,15 +13,17 @@ import Blues
 open class DeviceInformationService: Blues.Service, DelegatedServiceProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "180A")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    weak public var delegate: ServiceDelegate?
+    
+    public override init(identifier: Identifier, peripheral: Peripheral) {
+        super.init(identifier: identifier, peripheral: peripheral)
+        
+        self.name = NSLocalizedString(
             "service.device_information.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'Device Information' service"
         )
     }
-    
-    weak public var delegate: ServiceDelegate?
 }
 
 extension DeviceInformationService: ServiceDataSource {

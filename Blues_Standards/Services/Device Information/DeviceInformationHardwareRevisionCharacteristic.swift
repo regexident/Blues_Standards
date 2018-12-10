@@ -20,19 +20,20 @@ extension DeviceInformationHardwareRevision: CustomStringConvertible {
     }
 }
 
-public class DeviceInformationHardwareRevisionCharacteristic:
-Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
+public class DeviceInformationHardwareRevisionCharacteristic: Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "2A27")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    public weak var delegate: CharacteristicDelegate? = nil
+    
+    public override init(identifier: Identifier, service: Service) {
+        super.init(identifier: identifier, service: service)
+        
+        self.name = NSLocalizedString(
             "service.device_information.characteristic.hardware_revision.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'Hardware Revision' characteristic"
         )
     }
-    
-    public weak var delegate: CharacteristicDelegate? = nil
 }
 
 extension DeviceInformationHardwareRevisionCharacteristic: TypedReadableCharacteristicProtocol {

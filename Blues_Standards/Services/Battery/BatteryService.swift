@@ -13,15 +13,17 @@ import Blues
 public class BatteryService: Blues.Service, DelegatedServiceProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "180F")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    weak public var delegate: ServiceDelegate?
+    
+    public override init(identifier: Identifier, peripheral: Peripheral) {
+        super.init(identifier: identifier, peripheral: peripheral)
+        
+        self.name = NSLocalizedString(
             "service.battery.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'Battery' service"
         )
     }
-    
-    weak public var delegate: ServiceDelegate?
 }
 
 extension BatteryService: ServiceDataSource {
