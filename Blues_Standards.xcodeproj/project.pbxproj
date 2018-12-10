@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF180BF91EC372BB008F7982 /* BatteryLevelTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */; };
 		BF31B58C1EFA798B00226C5A /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31B58A1EFA798B00226C5A /* Blues.framework */; };
+		BF4203EA21BE708E00C49F35 /* libBlues.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4203E921BE708E00C49F35 /* libBlues.a */; };
 		BF5CD5731F1CB29000C2702A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5CD5751F1CB29000C2702A /* Localizable.strings */; };
 		BF6741E82198489F0048C593 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
 		BF6741E92198489F0048C593 /* DeviceInformationManufacturerNameCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD771EC325A300FAD246 /* DeviceInformationManufacturerNameCharacteristic.swift */; };
@@ -35,7 +36,6 @@
 		BF6DA1F91E71B4CB00F35943 /* BatteryLevelCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */; };
 		BF70B4A91F30E6D2005FCCD9 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F51E71B4CB00F35943 /* BatteryService.swift */; };
 		BF70B4AA1F30E6D2005FCCD9 /* BatteryLevelCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA1F61E71B4CB00F35943 /* BatteryLevelCharacteristic.swift */; };
-		BF70B4EB1F30E934005FCCD9 /* libBlues.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF70B4EA1F30E934005FCCD9 /* libBlues.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +65,7 @@
 		BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryLevelTransformerTests.swift; sourceTree = "<group>"; };
 		BF31B58A1EFA798B00226C5A /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Blues.framework"; sourceTree = "<group>"; };
 		BF3304231F372E870011FE87 /* Universal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Universal.xcconfig; sourceTree = "<group>"; };
+		BF4203E921BE708E00C49F35 /* libBlues.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libBlues.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5CD5741F1CB29000C2702A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF6DA1AF1E71AFCE00F35943 /* Blues_Standards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blues_Standards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6DA1B21E71AFCE00F35943 /* Blues_Standards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blues_Standards.h; sourceTree = "<group>"; };
@@ -107,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF70B4EB1F30E934005FCCD9 /* libBlues.a in Frameworks */,
+				BF4203EA21BE708E00C49F35 /* libBlues.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +203,7 @@
 		BF84AD891EC33C3700FAD246 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF4203E921BE708E00C49F35 /* libBlues.a */,
 				BF70B4EA1F30E934005FCCD9 /* libBlues.a */,
 				BF31B58A1EFA798B00226C5A /* Blues.framework */,
 			);
@@ -460,7 +462,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -512,7 +514,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -609,7 +611,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Blues/build/Debug-iphoneos",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
@@ -631,7 +633,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Blues/build/Debug-iphoneos",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
