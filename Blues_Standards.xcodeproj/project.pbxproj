@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2C6F5E221462DC0097BA1C /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E2C6F5D221462DC0097BA1C /* Blues.framework */; };
 		BF180BF91EC372BB008F7982 /* BatteryLevelTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */; };
-		BF31B58C1EFA798B00226C5A /* Blues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31B58A1EFA798B00226C5A /* Blues.framework */; };
 		BF4203EA21BE708E00C49F35 /* libBlues.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4203E921BE708E00C49F35 /* libBlues.a */; };
 		BF5CD5731F1CB29000C2702A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5CD5751F1CB29000C2702A /* Localizable.strings */; };
 		BF6741E82198489F0048C593 /* DeviceInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84AD781EC325A300FAD246 /* DeviceInformationService.swift */; };
@@ -61,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E2C6F5D221462DC0097BA1C /* Blues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Blues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF180BF41EC368D9008F7982 /* DeviceInformationPnPIDCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInformationPnPIDCharacteristic.swift; sourceTree = "<group>"; };
 		BF180BF81EC372BB008F7982 /* BatteryLevelTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryLevelTransformerTests.swift; sourceTree = "<group>"; };
 		BF31B58A1EFA798B00226C5A /* Blues.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blues.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Blues_Standards-gcvcpyxabvlcjdchlcjjsfdxfbox/Build/Products/Debug-iphonesimulator/Blues.framework"; sourceTree = "<group>"; };
@@ -92,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF31B58C1EFA798B00226C5A /* Blues.framework in Frameworks */,
+				2E2C6F5E221462DC0097BA1C /* Blues.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +204,7 @@
 		BF84AD891EC33C3700FAD246 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E2C6F5D221462DC0097BA1C /* Blues.framework */,
 				BF4203E921BE708E00C49F35 /* libBlues.a */,
 				BF70B4EA1F30E934005FCCD9 /* libBlues.a */,
 				BF31B58A1EFA798B00226C5A /* Blues.framework */,
@@ -284,7 +286,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "NWTN Berlin";
 				TargetAttributes = {
 					BF6DA1AE1E71AFCE00F35943 = {
@@ -422,6 +424,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -429,6 +432,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -482,6 +486,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -489,6 +494,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

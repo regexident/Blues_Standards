@@ -24,15 +24,17 @@ public class DeviceInformationSerialNumberCharacteristic:
 Characteristic, DelegatedCharacteristicProtocol, TypeIdentifiable {
     public static let typeIdentifier = Identifier(string: "2A25")
     
-    open override var name: String? {
-        return NSLocalizedString(
+    public weak var delegate: CharacteristicDelegate? = nil
+    
+    public override init(identifier: Identifier, service: ServiceProtocol) {
+        super.init(identifier: identifier, service: service)
+        
+        self.name = NSLocalizedString(
             "service.device_information.characteristic.serial_number.name",
             bundle: Bundle(for: type(of: self)),
             comment: "Name of 'Serial Number' characteristic"
         )
     }
-    
-    public weak var delegate: CharacteristicDelegate? = nil
 }
 
 extension DeviceInformationSerialNumberCharacteristic: TypedReadableCharacteristicProtocol {
