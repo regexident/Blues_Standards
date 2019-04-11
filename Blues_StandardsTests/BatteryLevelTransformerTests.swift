@@ -8,18 +8,17 @@
 
 import XCTest
 
-import Result
 import Blues
 
 @testable import Blues_Standards
 
 class BatteryLevelTransformerTests: XCTestCase {
 
-    let transformer = BatteryLevelTransformer()
+    let transformer = BatteryLevelDecoder()
 
     func testTooShort() {
         let data = Data(bytes: [])
-        guard case .err(.decodingFailed(_)) = self.transformer.transform(data: data) else {
+        guard case .failure = self.transformer.decode(data) else {
             XCTFail("Expected error.")
             return
         }
@@ -27,7 +26,7 @@ class BatteryLevelTransformerTests: XCTestCase {
 
     func testTooLong() {
         let data = Data(bytes: [0b00000000, 0b00000000])
-        guard case .err(.decodingFailed(_)) = self.transformer.transform(data: data) else {
+        guard case .failure = self.transformer.decode(data) else {
             XCTFail("Expected error.")
             return
         }
@@ -35,37 +34,37 @@ class BatteryLevelTransformerTests: XCTestCase {
 
     func testZero() {
         let data = Data(bytes: [0b00000000])
-        switch self.transformer.transform(data: data) {
-        case .ok(let value):
+        switch self.transformer.decode(data) {
+        case .success(let value):
             XCTAssertEqual(value, BatteryLevel(value: 0))
-        case .err(let error):
+        case .failure(let error):
             XCTFail("Error: \(error)")
         }
     }
 
     func testFifty() {
         let data = Data(bytes: [0b00110010])
-        switch self.transformer.transform(data: data) {
-        case .ok(let value):
+        switch self.transformer.decode(data) {
+        case .success(let value):
             XCTAssertEqual(value, BatteryLevel(value: 50))
-        case .err(let error):
+        case .failure(let error):
             XCTFail("Error: \(error)")
         }
     }
 
     func testHundred() {
         let data = Data(bytes: [0b01100100])
-        switch self.transformer.transform(data: data) {
-        case .ok(let value):
+        switch self.transformer.decode(data) {
+        case .success(let value):
             XCTAssertEqual(value, BatteryLevel(value: 100))
-        case .err(let error):
+        case .failure(let error):
             XCTFail("Error: \(error)")
         }
     }
 
     func testTwoHundredFiftyFive() {
         let data = Data(bytes: [0b11111111])
-        guard case .err(.decodingFailed(_)) = self.transformer.transform(data: data) else {
+        guard case .failure = self.transformer.decode(data) else {
             XCTFail("Expected error.")
             return
         }
