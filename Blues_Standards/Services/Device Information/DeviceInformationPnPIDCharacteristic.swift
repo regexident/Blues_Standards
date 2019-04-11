@@ -33,14 +33,14 @@ public struct DeviceInformationPnPIDDecoder: ValueDecoder {
     
     public typealias Input = Data
     
-    public func decode(_ input: Input) -> Blues.Result<Value, Blues.DecodingError> {
+    public func decode(_ input: Input) -> Result<Value, Blues.DecodingError> {
         let expectedLength = 8
         guard input.count == expectedLength else {
             let message = "Expected data of \(expectedLength) bytes, found \(input.count)."
-            return .err(.init(message: message))
+            return .failure(.init(message: message))
         }
         return input.withUnsafeBytes { (buffer: UnsafePointer<UInt8>) in
-            return .ok(Value(
+            return .success(Value(
                 vendorIDSource: buffer[6],
                 vendorID: UInt16(buffer[4] << 8) & UInt16(buffer[5]),
                 productID: UInt16(buffer[2] << 8) & UInt16(buffer[3]),
